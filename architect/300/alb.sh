@@ -1,5 +1,5 @@
 datestr=`date +%Y%m%d`
-myResourceGroupLB="az300$datestr"
+myResourceGroupLB="RG$datestr"
 
 #Create a resource group
 az group create \
