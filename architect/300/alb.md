@@ -1,3 +1,4 @@
+#!/bin/bash
 datestr=`date +%Y%m%d`
 myResourceGroupLB="RG$datestr"
 
