@@ -1,6 +1,6 @@
 #!/bin/bash
 datestr=`date +%Y%m%d`
-myResourceGroup="RG6$datestr"
+myResourceGroup="RG$datestr"
 
 az group create --name $myResourceGroup --location eastus
 
@@ -49,5 +49,5 @@ subscriptionId=$(echo $(az account show --query id) | xargs)
 #   --managed-image $managedImage
 
 #create the vmss from image 
-imageName=$(echo "//subscriptions//$subscriptionId//resourceGroups//myGalleryRG//providers//Microsoft.Compute//galleries//myGallery//images//myImageDefinition")
+imageName="/subscriptions/$subscriptionId/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition"
 az vmss create --resource-group $myResourceGroup --name myScaleSet --image $imageName --specialized
