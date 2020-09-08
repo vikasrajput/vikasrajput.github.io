@@ -1,24 +1,26 @@
-# Welcome to Vikas Rajput's Git blog/repo 
-Hi. Since you are here, lets attempt to shoo you away! 
-Recite this... 
-> Whilst we ponder - lets explore.
-> Pause and then play some more.
-> Have you happy as before.
+# Welcome to Vikas Rajput's Weblog and (public) Git Repo 
+Hi. While you are here, lets attempt to shoo you away!<br>
+Recite this couple of times.. 
+> Whilst we ponder - lets explore.<br>
+> Pause and then play some more.<br>
+> Have you happy as before. 
 
-Happy? 
-Yes - You're welcome! See you later. 
-No  - ok, try these links then..
+Happy?<br>
+Yes - You're welcome! See you later.<br>
+No  - ok, try these links then.. 
 
 ## Professional Stuff 
-I like to listen. And am learning to talk ! 
-In-between, when I have some time, I write.
+I like to listen. And am learning to talk !<br>
+In-between, when I have some time, I write.<br>
 
-A more professional version of myself is [my LinkedIn profile](https://linkedin.com/in/rajputsvikas).
+A more professional version of myself is [my LinkedIn profile](https://linkedin.com/in/rajputsvikas).<br>
 On this blog/github repo, you will find: 
+
 ### ..my notes on Technology 
 - [Data Engineering](blog\dataengineering)
 - [Architecture](blog\architecture)
 - [AI/ML Ops](blog\aiml)
+
 ### ..references to "stuff"
 - Azure Cert Resources 
 
