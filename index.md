@@ -1,33 +1,23 @@
 # Welcome to Vikas Rajput's Weblog and (public) Git Repo 
-Hi. While you are here, lets attempt to shoo you away!<br>
-Recite this couple of times.. 
 > Whilst we ponder - lets explore.<br>
-> Pause and then play some more.<br>
-> Have you happy as before. 
+> Pause, and then play some more.<br>
+> Lets gave you happy as before. 
 
-Happy?<br>
-Yes - You're welcome! See you later.<br>
-No  - ok, try these links then.. 
+Whilst I belieev there are greater things to explore, I appreciate your visit. Thank you.<br> 
+A more professional version of myself is [my LinkedIn profile](https://linkedin.com/in/rajputsvikas). On this particular weblog/github repo, you will find: 
 
-## Professional Stuff 
-I like to listen. And am learning to talk !<br>
-In-between, when I have some time, I write.<br>
-
-A more professional version of myself is [my LinkedIn profile](https://linkedin.com/in/rajputsvikas).<br>
-On this blog/github repo, you will find: 
-
-### ..my notes on Technology 
+## Notes
+#### ..on Technology 
 - [Data Engineering](blog\dataengineering)
 - [Architecture](blog\architecture)
-- [AI/ML Ops](blog\aiml)
+- [AI/ML](blog\aiml)
 
-### ..references to "stuff"
-- Azure Cert Resources 
+#### ..on "stuff"
+- [Azure Cert Resources](blog\refrences\learn)
+- [Lynchpin]
 
-## Confusion Matrix! :-D 
-
-## Dont. Go. Here! 
-
+## Paper-weight 
+I like to listen. And am learning to talk!  In-between, I read. 
 
 
 ## Welcome to GitHub Pages
@@ -37,33 +27,13 @@ You can use the [editor on GitHub](https://github.com/Manuel83/sample/edit/maste
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
 ### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
 ```markdown
 Syntax highlighted code block
-
 # Header 1
 ## Header 2
 ### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
 
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Manuel83/sample/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
