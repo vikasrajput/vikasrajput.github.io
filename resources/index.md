@@ -1,3 +1,6 @@
+# Resources 
+This page lists key resources for common reference. 
+
 ## Certifications 
 
 ### AI-100: Azure AI Engineer
@@ -18,6 +21,6 @@
 ### DP-200: Azure Data Engineering Implementation
 
 ### DP-201: Azure Data Engineering Design 
-- [Notes on Module 01 - Requirements](resources\dataengineering\dp-201-module1.md)
+- [Notes on Module 01 - Requirements](resources\dataengineering\dp-201-module1)
 
 ### DP-300: Azure Data Administration 
