@@ -17,7 +17,8 @@ A more professional version of myself is [my LinkedIn profile](https://linkedin.
 - [Lynchpin]
 
 ## Paper-weight 
-I like to listen. And am learning to talk!  In-between, I read. 
+I like to listen. And learning to talk!  In-between, I read. 
+- [References](resources\index.md)
 
 
 ## Welcome to GitHub Pages
