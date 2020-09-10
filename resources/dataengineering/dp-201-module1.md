@@ -1,4 +1,4 @@
-## Four Pillars and Requirements 
+## DP-201 | Case Study | (Module 1) Requirements 
 
 |   Requirement                                             | Category                      |
 | :-------------------------------------------------------- | ----------------------------: | 
