@@ -1,4 +1,3 @@
-
 # Certifications 
 
 ## AI-100: Azure AI Engineer
