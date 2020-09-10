@@ -1,7 +1,7 @@
 # Welcome to Vikas Rajput's Weblog and (public) Git Repo 
 > Whilst we ponder - lets explore.<br>
-> Pause, and then play some more.<br>
-> Lets gave you happy as before. 
+> Pause, and play some more.<br>
+> Have you happy as before. 
 
 Whilst I belieev there are greater things to explore, I appreciate your visit. Thank you.<br> 
 A more professional version of myself is [my LinkedIn profile](https://linkedin.com/in/rajputsvikas). On this particular weblog/github repo, you will find: 

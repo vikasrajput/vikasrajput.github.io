@@ -1,23 +1,23 @@
-# Certifications 
+## Certifications 
 
-## AI-100: Azure AI Engineer
+### AI-100: Azure AI Engineer
 
-## AZ-400: Azure DevOps 
+### AZ-400: Azure DevOps 
 
-## DP-050: Migrating SQL to Azure</h2>     
+### DP-050: Migrating SQL to Azure</h2>     
 - [Business Case for SQL Workload Migration to Azure](https://azure.microsoft.com/en-us/resources/future-proof-your-data-infrastructure-with-azure/)
 - [Partner Guidance for VLDB Migration](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/very-large-database-migration-to-azure-8211-recommendations/ba-p/368146)
 - [Storyboard - Case Study](https://upload.wikimedia.org/wikipedia/commons/a/a4/Datadog_high-level_architecture.svg)
 
-## DP-060
+### DP-060
 
-## DP-070
+### DP-070
 
-## DP-100: Azure Data Science 
+### DP-100: Azure Data Science 
 
-## DP-200: Azure Data Engineering Implementation
+### DP-200: Azure Data Engineering Implementation
 
-## DP-201: Azure Data Engineering Design 
+### DP-201: Azure Data Engineering Design 
 - [Notes on Module 01 - Requirements](resources\dataengineering\dp-201-module1.md)
 
-## DP-300: Azure Data Administration 
+### DP-300: Azure Data Administration 
