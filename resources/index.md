@@ -24,3 +24,6 @@ This page lists key resources for common reference.
 - [Notes on Module 01 - Requirements](dataengineering\dp-201-module1)
 
 #### DP-300: Azure Data Administration 
+
+## Labs
+### Azure Cloud Shell 

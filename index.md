@@ -3,7 +3,7 @@
 > Pause, and play some more.<br>
 > Have you happy as before. 
 
-Whilst I belieev there are greater things to explore, I appreciate your visit. Thank you.<br> 
+Whilst I believe there are better things to explore, I appreciate your visit. Thank you.<br> 
 A more professional version of myself is [my LinkedIn profile](https://linkedin.com/in/rajputsvikas). On this particular weblog/github repo, you will find: 
 
 ## Notes
@@ -17,13 +17,13 @@ A more professional version of myself is [my LinkedIn profile](https://linkedin.
 - [Lynchpin]
 
 ## Paper-weight 
-I like to listen. And learning to talk!  In-between, I read. 
+I like to listen. Still learning to talk!  In-between, I read. 
 - [References](resources\index)
 
 
-## Welcome to GitHub Pages
+<!--## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/Manuel83/sample/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+--You can use the [editor on GitHub](https://github.com/Manuel83/sample/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
@@ -36,5 +36,6 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+[Link](url) and ![Image](src)-->
+
 ```
