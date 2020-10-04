@@ -18,7 +18,8 @@ A more professional version of myself is [my LinkedIn profile](https://linkedin.
 
 ## Paper-weight 
 I like to listen. Still learning to talk!  In-between, I read. 
-- [References](resources\index)
+- [References](resources\reference)
+- [Talks](resources\talks)
 
 
 <!--## Welcome to GitHub Pages
