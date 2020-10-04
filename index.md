@@ -1,5 +1,5 @@
 # Welcome to Vikas Rajput's Weblog and (public) Git Repo 
-> Whilst we ponder - lets explore.<br>
+> Whilst we ponder, lets explore.<br>
 > Pause, and play some more.<br>
 > Have you happy as before. 
 
