@@ -6,17 +6,12 @@
 Whilst I believe there are better things to explore, I appreciate your visit. Thank you.<br> 
 A more professional version of myself is [my LinkedIn profile](https://linkedin.com/in/rajputsvikas). On this particular weblog/github repo, you will find: 
 
-## Notes
-#### ..on Technology 
+## Notes ..on Technology 
 - [Data Engineering](blog\dataengineering)
 - [Architecture](blog\architecture)
 - [AI/ML](blog\aiml)
 
-#### ..on "stuff"
-- [Azure Cert Resources](blog\refrences\learn)
-- [Lynchpin]
-
-## Paper-weight 
+## Paper-weight Stuff
 I like to listen. Still learning to talk!  In-between, I read. 
 - [References](resources\reference)
 - [Talks](resources\talks)
