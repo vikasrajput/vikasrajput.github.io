@@ -1,7 +1,7 @@
 # Ref https://docs.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-cli
 # 1. Simple VM 
 # 2. VM using Cert / Cloud init yaml 
-# 3. Custom image 
+# 3. Custom image (ref: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images) 
 
 
 echo "DECLARING VARIABLES...."
@@ -13,8 +13,8 @@ resourcetype="vm"
 echo "CREATING RESOURCE GROUP $resourcegroup"
 az group create --name $resourcegroup --location $location
 
-resourcename=$resourcetype$resourcegroup
 echo "---CREATING A SIMPLE VM $resourcename, OPENING PORT 80, AND DEPLOYING WEBSERVER---"
+resourcename=$resourcetype$resourcegroup
 az vm create --resource-group $resourcegroup --name $resourcename --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
 az vm open-port --resource-group $resourcegroup --name $resourcename --port 80 > /dev/null 
 
@@ -27,8 +27,6 @@ sudo apt-get -y install nginx > /dev/null
 EOF 
 
 echo "BROWSE http://$resourcepublicip"
-echo "DONT FORGET TO CLEAN AFTER YOURSELF!!"
-echo "az group delete --name $resourcegroup --yes"
 
 
 
@@ -48,3 +46,8 @@ az vm create --resource-group $resourcegroup --name $resourcename --image Ubuntu
 az vm open-port --resource-group $resourcegroup --name $resourcename --port 443 > /dev/null
 resourcepublicip=$(az vm show -d -g $resourcegroup -n $resourcename --query publicIps -o tsv)
 echo "BROWSE https://$resourcepublicip"
+
+
+
+echo "DONT FORGET TO CLEAN AFTER YOURSELF!!"
+echo "az group delete --name $resourcegroup --yes"
