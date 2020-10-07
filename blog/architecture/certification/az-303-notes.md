@@ -6,22 +6,25 @@ If you are preparing for AZ-303 cert, below are some reference points:
 An expanded and suggested list of resources are below: 
 - Assets 
     - Compute
-        - [VM](https://github.com/vikasrajput/vikasrajput.github.io/blob/4199446e25842cadb0819bbfb920ea5ad4586808/resources/architecture/lab-azure-compute-vm.sh), [VM Scale Sets](https://github.com/vikasrajput/vikasrajput.github.io/blob/master/resources/architecture/lab-azure-compute-vmss.sh), Batch
-        - Functions, Container Instane, AKS 
+        - [VM](https://github.com/vikasrajput/vikasrajput.github.io/blob/4199446e25842cadb0819bbfb920ea5ad4586808/resources/architecture/lab-azure-compute-vm.sh), [VM Scale Sets](https://github.com/vikasrajput/vikasrajput.github.io/blob/master/resources/architecture/lab-azure-compute-vmss.sh), [Batch](https://github.com/vikasrajput/vikasrajput.github.io/blob/master/resources/architecture/lab-azure-compute-batch.sh)
+        - Functions, Container Instane, AKS
     - Storage  
         - File Share, Queue, Disk Storage 
         - Archive, Backup, ADLS 
     - Network 
-        - Firewall, WAF, App Gateway, VPN Gateway
-        - ExpressRoute, Load Balancer, VNet
+        - VNet, VNet Peering, Routing, DNS Zones
+        - ExpressRoute, Load Balancer
     - Security  
-        - AAD, DDoS, Key Vault, ASC, AIP 
+        - AAD, SSO and MFA, Identity Protection, AD Connect 
+        - Firewall, WAF, App Gateway, VPN Gateway
+        - NSG, DDoS, Key Vault, AIP 
 - Manage
     - Governance  
+        - RBAC, Azure Lock, Azure Policy
         - Azure Advisor, Automation, ARM Template 
         - Network Watcher, Traffic Manager
     - Monitoring
-        - Azure Monitor, ASH, Policy
+        - Azure Monitor, ASH, ASC
         - App Insight, Log Analytics 
     - Migration 
         - DB Migration Service, Azure Migrate, ASR
