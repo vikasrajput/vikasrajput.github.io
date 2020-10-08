@@ -21,7 +21,7 @@ This page lists key resources for common reference.
 #### DP-200: Azure Data Engineering Implementation
 
 #### DP-201: Azure Data Engineering Design 
-- [Notes and detailed requirements (Module 01)]( https://vikasrajput.github.io/blog/dataengineering/certification/dp-201-notes.html)
-- [Notes and detailed requirements (Module 01)]( https://vikasrajput.github.io/blog/dataengineering/certification/dp-201-notes.md)
+- [Notes and detailed requirements (Module 01)](https://vikasrajput.github.io/blog/dataengineering/certification/dp-201-notes.html)
+- [Notes and detailed requirements (Module 01)](https://vikasrajput.github.io/blog/dataengineering/certification/dp-201-notes.md)
 
 #### DP-300: Azure Data Administration 
