@@ -7,6 +7,7 @@ If you are preparing for DP-201 cert, below are some reference points:
 ## DP-201 | Case Study | (Module 1) Requirements 
 
 Reference Case Study([MSFT Github](https://github.com/MicrosoftLearning/DP-201-Designing-an-Azure-Data-Solution/blob/master/instructions/course-case-study.md))
+
 |   Requirement                                             | Category                      |
 | :-------------------------------------------------------- | ----------------------------: | 
 | Support current and future customers                      | General                       | 
