@@ -21,4 +21,3 @@ If you are preparing for DP-201 cert, below are some reference points:
 | Chat bot: multi-linguistic, history retention             | General, Security, Scale      |
 | Bike: auto locking and data features, Summary, 3rd Party  | General, Security, Scale      | 
 | Predictive maintenance: telemetry, logs, notifications    | Efficiency, Security, Scale   | 
-| :-------------------------------------------------------- | ----------------------------: |
