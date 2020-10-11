@@ -18,24 +18,27 @@ If you are preparing for AZ-400 cert, below are some reference points:
 
 ## Workflow 
 ### Overview, Boards, Repos 
+- Ref
+    - [Agile Manifesto](https://www.agilealliance.org/agile101/the-agile-manifesto/)
+    
 - Labs 
     - Module 01: [Agile Planning and Portfolio Management with Azure Boards](https://www.azuredevopslabs.com/labs/azuredevops/agile/)
     - Module 02,03: [Version Controlling with Git in Visual Studio Code and Azure DevOps](https://www.azuredevopslabs.com/labs/azuredevops/git/)
     - Module 19:
-### Pipelines - CI 
+### Pipelines - CI/CD 
 - Labs 
     - Module 05: [Enabling Continuous Integration with Azure Pipelines](https://www.azuredevopslabs.com/labs/azuredevops/continuousintegration/), [Integrate Your GitHub Projects With Azure Pipelines](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/)
     - Module 14: [Azure Deployments using Resource Manager templates](http://microsoft.github.io/PartsUnlimited/iac/200.2x-IaC-AZ-400T05AppInfra.html)
     - Module 17 (optional): [Terraform](https://azuredevopslabs.com/labs/vstsextend/terraform/), [Chef](http://microsoft.github.io/PartsUnlimitedMRP/iac/200.2x-IaC-DeployappwithChefonAzure.html), [Puppet](http://microsoft.github.io/PartsUnlimitedMRP/iac/200.2x-IaC-DeployappwithPuppetonAzure.html), [Ansible](http://microsoft.github.io/PartsUnlimitedMRP/iac/200.2x-IaC-AnsiblewithAzure.html)
-### Pipelines - Release 
+### Release Management 
 - Labs 
 	- Module 10: 
 	- Module 11: 
 	- Module 20:
-### Pipelines - CD 
+### Continuous Delivery 
 - Labs 
+	- Module 08: [Deploy existing .NET apps as Windows containers](https://www.azuredevopslabs.com/labs/vstsextend/aspnetmodernize/)
 	- Module 12: [Feature Flag Management with LaunchDarkly and AzureDevOps](https://www.azuredevopslabs.com/labs/vstsextend/launchdarkly/)
-	- Module 08 (optional): [Deploy existing .NET apps as Windows containers](https://www.azuredevopslabs.com/labs/vstsextend/aspnetmodernize/)
 	- Module 15: [Deploying a Dockerized Java app to Azure Web App for Containers](https://azuredevopslabs.com/labs/vstsextend/dockerjava/)
 	- Module 16: [Deploying a multi-container application to Azure Kubernetes Services](https://azuredevopslabs.com/labs/vstsextend/kubernetes/)
 ### Artifacts, Compliance 
