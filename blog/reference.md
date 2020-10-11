@@ -6,6 +6,7 @@ This page lists key resources for common reference.
 #### AI-100: Azure AI Engineer
 
 #### AZ-400: Azure DevOps 
+- [Ref and Lab Notes](https://vikasrajput.github.io/blog/architecture/certification/az-400-notes)
 
 #### DP-050: Migrating SQL to Azure    
 - [Business Case for SQL Workload Migration to Azure](https://azure.microsoft.com/en-us/resources/future-proof-your-data-infrastructure-with-azure/)
