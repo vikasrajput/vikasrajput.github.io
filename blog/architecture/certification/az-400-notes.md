@@ -18,18 +18,20 @@ If you are preparing for AZ-400 cert, below are some reference points:
 	- [State of DevOps by Puppet](https://puppet.com/resources/report/state-of-devops-report)
 	- [Git Branching Models](https://nvie.com/posts/a-successful-git-branching-model/)
 
-### 2. Pipelines - CI/CD 
+### 2. Artifacts, Pipelines 
 - Labs 
+	- Ref: [Putting it all together](https://www.edmondek.com/images/blue_green_azure_devops_app_service.png)
+	- Module 04: [Package Management with Azure Artifacts](https://www.azuredevopslabs.com/labs/azuredevops/packagemanagement/) 
     - Module 05: [Enabling Continuous Integration with Azure Pipelines](https://www.azuredevopslabs.com/labs/azuredevops/continuousintegration/), 
-	[Integrate Your GitHub Projects With Azure Pipelines](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/)
+	[+Publish to Artifact Feed](https://docs.microsoft.com/en-us/azure/devops/pipelines/artifacts/universal-packages?view=azure-devops&tabs=classic), 
+	(Optional) [Integrate Your GitHub Projects With Azure Pipelines](https://www.azuredevopslabs.com/labs/azuredevops/github-integration/)
     - Module 14: [Azure Deployments using Resource Manager templates](http://microsoft.github.io/PartsUnlimited/iac/200.2x-IaC-AZ-400T05AppInfra.html)
     - Module 17 (optional): 
-	[Terraform](https://azuredevopslabs.com/labs/vstsextend/terraform/), 
+	[Terraform](https://azuredevopslabs.com/labs/vstsextend/terraform/)(within AzDevOps), 
+	[Ansible](http://microsoft.github.io/PartsUnlimitedMRP/iac/200.2x-IaC-AnsiblewithAzure.html), 
 	[Chef](http://microsoft.github.io/PartsUnlimitedMRP/iac/200.2x-IaC-DeployappwithChefonAzure.html), 
-	[Puppet](http://microsoft.github.io/PartsUnlimitedMRP/iac/200.2x-IaC-DeployappwithPuppetonAzure.html), 
-	[Ansible](http://microsoft.github.io/PartsUnlimitedMRP/iac/200.2x-IaC-AnsiblewithAzure.html)
-- Ref
-	- [Putting it all together](https://www.edmondek.com/images/blue_green_azure_devops_app_service.png)
+	[Puppet](http://microsoft.github.io/PartsUnlimitedMRP/iac/200.2x-IaC-DeployappwithPuppetonAzure.html)
+
 
 ### 3. Release Management 
 - Labs 
@@ -53,9 +55,8 @@ If you are preparing for AZ-400 cert, below are some reference points:
 	- Module 08: [Deploy existing .NET apps as Windows containers](https://www.azuredevopslabs.com/labs/vstsextend/aspnetmodernize/) 
 	- Module 16: [Deploying a multi-container application to Azure Kubernetes Services](https://azuredevopslabs.com/labs/vstsextend/kubernetes/) 
 
-### 5. Artifacts, Compliance 
+### 5. Security, Compliance, Monitoring
 - Labs 
-	- Module 04: [Package Management with Azure Artifacts](https://www.azuredevopslabs.com/labs/azuredevops/packagemanagement/) 
 	- Module 06: [Using secrets from Azure Key Vault in a pipeline](https://www.azuredevopslabs.com/labs/vstsextend/azurekeyvault/) 
 	- Module 07: [Managing Technical Debt with Azure DevOps and SonarCloud](https://www.azuredevopslabs.com/labs/azuredevops/sonarcloud/) 
 	- Module 09: [Managing Open-source security and license with WhiteSource](https://www.azuredevopslabs.com/labs/vstsextend/WhiteSource/) 
