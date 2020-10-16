@@ -8,6 +8,8 @@ If you are preparing for AZ-400 cert, below are some reference points:
 <br/><br/>
 
 ## Workflow 
+Below is an high level grouping of key resources and labs which can help in preparation of the exam. Its not to go beyond or replace the official curriculum, but my personal view of way to group the learnings / exercises together - and should be looked as such only. 
+
 ### 1. Overview, Boards, Repos  
 - Labs 
 	- Module 01 [Link](https://www.azuredevopslabs.com/labs/azuredevops/agile/)	
