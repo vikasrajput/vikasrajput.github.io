@@ -6,8 +6,10 @@ If you are preparing for AZ-303 cert, below are some reference points:
 An expanded and suggested list of resources are below: 
 - Assets 
     - Compute
-        - [VM](https://vikasrajput.github.io/blog/architecture/labs/lab-azure-compute-vm.sh), [VM Scale Sets](https://vikasrajput.github.io/blog/architecture/labs/lab-azure-compute-vmss.sh), [Batch](https://vikasrajput.github.io/blog/architecture/labs/lab-azure-compute-batch.sh)
-        - Functions, Container Instane, AKS
+        - [VM](https://vikasrajput.github.io/blog/architecture/labs/lab-azure-compute-vm.sh) [Link2](blog\architecture\labs\lab-azure-compute-vm.sh), 
+            [VM Scale Sets](https://vikasrajput.github.io/blog/architecture/labs/lab-azure-compute-vmss.sh), 
+            [Batch](https://vikasrajput.github.io/blog/architecture/labs/lab-azure-compute-batch.sh)
+        - Functions, Container Instance, AKS
     - Storage  
         - File Share, Queue, Disk Storage 
         - Archive, Backup, ADLS 
