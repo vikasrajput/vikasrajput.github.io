@@ -9,14 +9,14 @@ Whilst I believe there are better things to explore, I appreciate your visit. Th
 A more professional version of myself is [my LinkedIn profile](https://linkedin.com/in/rajputsvikas). On this particular weblog/github repo, you will find: 
 
 ## Notes ..on Technology 
-- [Data Engineering](blog\dataengineering)
-- [Architecture](blog\architecture)
-- [AI/ML](blog\aiml)
+- [Data Engineering](dataengineering)
+- [Architecture](architecture)
+- [AI/ML](aiml)
 
 ## Paper-weight Stuff
 I like to listen. Still learning to talk!  In-between, I read. 
-- [References](blog\reference)
-- [Talks](blog\talks)
+- [References](reference)
+- [Talks](talks)
 
 
 <!--## Welcome to GitHub Pages
