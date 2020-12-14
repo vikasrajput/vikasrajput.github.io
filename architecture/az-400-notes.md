@@ -16,7 +16,7 @@ Below is an high level grouping of key resources and labs which can help in prep
 	- Module 02, 03 [Link1](https://www.azuredevopslabs.com/labs/azuredevops/git/)
 	- Module 19 [Link](https://azuredevopslabs.com/labs/vsts/teams)	
 - Ref
-    - [Demo: Local Git](https://vikasrajput.github.io/architecture/lab-git-local.sh)
+    - [Demo: Local Git](https://vikasrajput.github.io/architecture/labs/lab-git-local.sh)
 	- [Agile Manifesto](https://www.agilealliance.org/agile101/the-agile-manifesto/)
 	- [State of DevOps by Puppet](https://puppet.com/resources/report/state-of-devops-report)
 	- [Git Branching Models](https://nvie.com/posts/a-successful-git-branching-model/)
