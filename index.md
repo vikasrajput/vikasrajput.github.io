@@ -1,18 +1,10 @@
 # Welcome to Vikas Rajput's Weblog and (public) Git Repo 
-<!--- 
-> Whilst we ponder, lets explore.<br>
-> Pause, and play some more.<br>
-> Have you happy as before. 
---->
-
-
 ## Notes ..on Technology 
 - [Data Engineering](dataengineering)
 - [Architecture](architecture)
 - [AI/ML](aiml)
 
 ## Paper-weight Stuff
-I like to listen. Still learning to talk!  In-between, I read. 
 - [References](reference)
 - [Talks](talks)
 
