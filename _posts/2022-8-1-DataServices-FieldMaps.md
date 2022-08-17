@@ -3,16 +3,10 @@ layout: post
 title: Field Maps for (relational) Data Services 
 ---
 
-Field Map, one-pager for (relational) Data Services on Azure: 
-
-- [SQL Server 2022 (Preview)]({% link pages/waf/sql2022.md %}) 
-
-- [Azure SQL]({% link pages/waf/azsql.md %}) 
-
-- [MySQL @ Azure]({% link pages/waf/azmysql.md %}) 
-
-- [PostgreSQL @ Azure]({% link pages/waf/azpgsql.md %}) 
-<br><br>
+<br>
+[Landing Page] &emsp; &emsp; | &emsp; &emsp;  [MySQL]({% link pages/waf/azmysql.md %}) &emsp; &emsp; | &emsp; &emsp; [PostgreSQL]({% link pages/waf/azpgsql.md %})  &emsp; &emsp; | &emsp; &emsp; [SQL Server 2022]({% link pages/waf/sql2022.md %})  &emsp; &emsp; | &emsp; &emsp;  [Azure SQL]({% link pages/waf/azsql.md %})
+<br>
+<br>
 
 ## Why *Field Maps*? 
 I was looking for something which (a) enables field teams, (b)  streamline current data, and (c) is easy to step through quickly.
