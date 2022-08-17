@@ -23,7 +23,8 @@ Field Maps is a quick and easy way to map Foundational topics (features in a dat
 ## Field Map, or not, how it helps me? 
 5R's of Cloud Migration are almost public domain knowledge now ([link](https://www.gartner.com/en/documents/1485116){:target="_blank" rel="noopener"}). Same goes for Well Architected Framework (WAF) with every cloud provider having it. <br> 
 
-If I put my business hat on, 5R's and WAF pillars (e.g. cost, security) provides a strong framework on migration decisions (and success). But beyond that, inherent understanding of core tech/service, on source and target, is critical - as a Customer, Architect or Partner. <br><br>
+If I put my business hat on, 5R's and WAF pillars (e.g. cost, security) provides a strong framework on migration decisions (and success). But beyond that, inherent understanding of core tech/service, on source and target, is critical - as a Customer, Architect or Partner. 
+
 * If considering Rehost, one need to be aware of stack of features available across 5 WAF pillars. 
 * If considering Refactor, one need to intimately understand key dev features and integration feaures available. 
 * If considering Rearchitect, one need to make decisions on features to part ways with, and what's available. 
