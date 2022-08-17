@@ -23,7 +23,7 @@ Field Maps is a quick and easy way to map Foundational topics (features in a dat
 ## Field Map, or not, how it helps me? 
 5R's of Cloud Migration are almost public domain knowledge now ([link](https://www.gartner.com/en/documents/1485116){:target="_blank" rel="noopener"}). Same goes for Well Architected Framework (WAF) with every cloud provider having it. <br> 
 
-If I put my business hat on, 5R's and WAF pillars (e.g. cost, security) provides a strong framework on migration decisions (and success). But beyond that, inherent understanding of core tech/service, on source and target, is critical - as a Customer, Architect or Partner. 
+If I put my business hat on, 5R's and WAF pillars (e.g. cost, security) provides a strong framework on migration decisions (and success). But beyond that, inherent understanding of core tech/service is critical - as a Customer, Architect or Partner. 
 
 * If considering Rehost, one need to be aware of stack of features available across 5 WAF pillars. 
 * If considering Refactor, one need to intimately understand key dev features and integration feaures available. 
@@ -39,15 +39,13 @@ And that's where the challenge is:
 * If I go to blogs - I need to know who to read - plus the content could still be dated. Not to mention, you might still check back with Product Documentation.
 
 
-Everyone's learning path is personal to them. But I prefer being able to go to the source - documentation, but I as well want to be able to do it quickly. Field Map offers a good balance on this. Am not influenced by interpretations. It’s presented as one pager map. And I can go deeper on topics straight (mostly) from Product Documentation.  <br><br>
+Everyone's learning path is personal to them. I prefer being able to go to the source. I as well want to be able to do it quickly. Field Map offers a good balance on this. Am not influenced by interpretations. It’s presented as one pager map. And I can go deeper on topics straight (mostly) from Product Documentation.  <br><br>
 
 ## How do I use these Field Maps? 
 Start with any of the one-pager field maps linked above. Each has
 * Foundational topics mapped out if you are just starting
 * References if you are in the Field and need to roll with some artefacts right away
-* Five well architect framework related content is presented in order if you want to cover everything. Alternatively, jump to a specific pillar - perhaps as your conversation starter for problem/conversation at hand (and pull in other pillars eventually).
-
-<br><br>
+* Five well architect framework related content is presented in order if you want to cover everything. Alternatively, jump to a specific pillar - perhaps as your conversation starter for problem/conversation at hand (and pull in other pillars eventually).<br><br>
 
 ## Who owns these Field Maps? 
 Legally - no body (or entity). I intend to keep these current to best I can (and shared here) – but I don’t intend to suggest these are owned. At best, I see them as pointer to Product and Vendor Documentation / knowledge - just catalogued differently to provide a convenient start line!
