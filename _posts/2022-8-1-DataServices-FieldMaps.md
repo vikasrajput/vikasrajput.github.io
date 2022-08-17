@@ -23,7 +23,7 @@ Field Maps is a quick and easy way to map Foundational topics (features in a dat
 ## Field Map, or not, how it helps me? 
 5R's of Cloud Migration are almost public domain knowledge now ([link](https://www.gartner.com/en/documents/1485116){:target="_blank" rel="noopener"}). Same goes for Well Architected Framework (WAF) with every cloud provider having it. <br> 
 
-If I put my business hat on, 5R's and WAF pillars (e.g. cost, security) provides a strong framework on migration decisions (and success). But beyond that, inherent understanding of core tech/service is critical - as a Customer, Architect or Partner. 
+If I put my business hat on, 5R's and WAF pillars (e.g. cost, security) provides a strong framework on migration decisions (and success). Beyond that, understanding of core tech/service is critical - as a Customer, Architect or Partner. 
 
 * If considering Rehost, one need to be aware of stack of features available across 5 WAF pillars. 
 * If considering Refactor, one need to intimately understand key dev features and integration feaures available. 
@@ -32,11 +32,11 @@ If I put my business hat on, 5R's and WAF pillars (e.g. cost, security) provides
 * If considering Replace, one need to understand baseline features and how the target solution would meet or exceed. 
 
 
-In all these cases, you need a firm understanding on Foundations plus key WAF pillar features. <br>
+Firm understanding on Foundations and key WAF pillar features underpin all migration pathways. <br>
 And that's where the challenge is: 
-* If I start with a “skilling” resource (say aka.ms/learn), I find them to be too structured and sequential and less on details.
-* If I go to Product Documentation – it’s wide and spread out (since it’s a documentation + reference for “everything”). 
-* If I go to blogs - I need to know who to read - plus the content could still be dated. Not to mention, you might still check back with Product Documentation.
+* If I start with skilling resource (say MSFT Learn) – they are too structured / sequential and less on details.
+* If I go to Product Documentation – it’s (for right reasons) wide and spread out.
+* If I go to blogs - I need to know who to read - plus the content could be dated. 
 
 
 Everyone's learning path is personal to them. I prefer being able to go to the source. I as well want to be able to do it quickly. Field Map offers a good balance on this. Am not influenced by interpretations. It’s presented as one pager map. And I can go deeper on topics straight (mostly) from Product Documentation.  <br><br>
