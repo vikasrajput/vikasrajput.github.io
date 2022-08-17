@@ -21,19 +21,20 @@ In GIS world, term Field Mapping is used for somewhat similar intent. And hence 
 Field Maps is a quick and easy way to map Foundational topics (features in a data tech/service) and as Well Architected Framework (aka.ms/waf) pillar features.  <br><br>
 
 ## Field Map, or not, how it helps me? 
-5R's of Cloud Migration are almost public domain knowledge now ([link](https://www.gartner.com/en/documents/1485116){:target="_blank" rel="noopener"}). If I put my business hat on, 5R's and WAF pillars (e.g. cost, security) provides a strong framework on migration decisions (and success). But beyond that, inherent understanding of core tech/service, on source and target, is critical - as a Customer, Architect or Partner. 
-If considering Rehost, one need to be aware of stack of features available across 5 WAF pillars. 
-If considering Refactor, one need to intimately understand key dev features and integration feaures available.
-If considering Rearchitect, one need to make decisions on features to part ways with, and what's available. 
-If considering Rebuild, one need to understand platform and scale options for what pathways (now & future) are available. 
-If considering Replace, one need to understand baseline features and how the target solution would meet or exceed this baseline. 
-In all these cases, you need a firm understanding (and skilling) on foundations plus WAF pillar features. 
-
+5R's of Cloud Migration are almost public domain knowledge now ([link](https://www.gartner.com/en/documents/1485116){:target="_blank" rel="noopener"}). If I put my business hat on, 5R's and WAF pillars (e.g. cost, security) provides a strong framework on migration decisions (and success). But beyond that, inherent understanding of core tech/service, on source and target, is critical - as a Customer, Architect or Partner. <br>
+If considering Rehost, one need to be aware of stack of features available across 5 WAF pillars. <br>
+If considering Refactor, one need to intimately understand key dev features and integration feaures available. <br>
+If considering Rearchitect, one need to make decisions on features to part ways with, and what's available. <br>
+If considering Rebuild, one need to understand platform and scale options for what pathways (now & future) are available. <br>
+If considering Replace, one need to understand baseline features and how the target solution would meet or exceed this baseline. <br>
+In all these cases, you need a firm understanding (and skilling) on foundations plus WAF pillar features. <br>
+<br>
 And that's where challenge is: 
 * If I start with a “skilling” resource (say aka.ms/learn), I find them to be too structured and sequential and less on details.
 * If I go to Product Documentation – it’s wide and spread out (since it’s a documentation + reference for “everything”). 
 * If I go to blogs - I need to know who to read - plus the content could still be dated. Not to mention, you might still check back with Product Documentation.
-<br>
+
+<br><br>
 Everyone's learning path is personal to them. But I prefer being able to go to the source - documentation, but I as well want to be able to do it quickly. Field Map offers a good balance on this. Am not influenced by interpretations. It’s presented as one pager map. And I can go deeper on topics straight (mostly) from Product Documentation.  <br><br>
 
 ## How do I use these Field Maps? 
