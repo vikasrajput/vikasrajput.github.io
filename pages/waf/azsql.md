@@ -3,7 +3,7 @@ layout: page
 title: Field Map - Azure SQL
 ---
 <br>
-[MySQL]({% link pages/waf/azmysql.md %}) &emsp; &emsp; | &emsp; &emsp; [PostgreSQL]({% link pages/waf/azpgsql.md %})  &emsp; &emsp; | &emsp; &emsp; [SQL Server]({% link pages/waf/sql2022.md %})  &emsp; &emsp; | &emsp; &emsp;  [Azure SQL]
+[MySQL]({% link pages/waf/azmysql.md %}) &emsp; &emsp; | &emsp; &emsp; [PostgreSQL]({% link pages/waf/azpgsql.md %})  &emsp; &emsp; | &emsp; &emsp; [SQL Server]({% link pages/waf/sql2022.md %})  &emsp; &emsp; | &emsp; &emsp;  [Azure SQL] 
 <br>
 
 
