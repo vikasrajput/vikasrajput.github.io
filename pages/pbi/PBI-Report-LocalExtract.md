@@ -32,7 +32,7 @@ At the end of this exercise, you should be able to produce a report looking like
     - [Reference](/resources/PBIRptDev/Page4_Performance.png "Performance Report")
 
 Support files (for info): 
-* [AdventureWorksDW Extract]({% link resources/PBIRptDev/AdventureWorksDW2020AdventworksDW_Extract.xls %}) 
+* [AdventureWorksDW Extract]({% link resources/PBIRptDev/AdventureWorksDW2020AdventworksDW_Extract.xlsx %}) 
 
 <br><br>
 
