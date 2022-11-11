@@ -4,10 +4,16 @@ layout: page
 permalink: /about/
 ---
 
-For me, Data is at core of everything. It’s the ultimate storyteller. All we do is interpret it or miss capturing its value. 
+Data is at core of everything and ultimate storyteller. 
+All we do is mis/interpret it. 
 
-For Data to stand the tests of time, I architect and manage delivery of resilient business solutions.  
+To reach and persist: data depends on a strong architecture.
+Frameworks, anti/patterns and *-as-code is the begining, not the end. 
 
-Am a believer of Service Leadership. And Open Source. And [PEP 20: Zen of Python](https://peps.python.org/pep-0020/#the-zen-of-python){:target="_blank" rel="noopener"} . 
+At best, Tech is an enabler, a piece, a pie. 
+Full circle needs People and Process too.
 
-Beyond work, I love spending time with my family, read and long walks. I cook - at times it all ending up in my plate!
+I architect, manage business solutions and platforms with data at their core, and Service Leadership as my way of execution. And some [Zen!](https://peps.python.org/pep-0020/#the-zen-of-python){:target="_blank" rel="noopener"} . 
+
+
+Beyond work, I love spending time with my family, reading, cooking and long walks. 
