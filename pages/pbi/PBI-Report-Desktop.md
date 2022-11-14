@@ -53,6 +53,8 @@ Support files (for info):
     NOTE: In this exercise all the aforementioned entities are in ready-to-consume state. In some real world scenarios, you might need to source the data and then cleanse/ transform it for your or business specific consumption. 
 6. Click on **Load** button. 
 
+Explore the PBI Desktop areas like Model, Transformations, Report etc. 
+
 At end of this stage, you must be on **Report** view (left bar). This is where you can start creating your visuals, report pages etc. Please take a note of other options on this bar (**Data** and **Model** views).
 
 

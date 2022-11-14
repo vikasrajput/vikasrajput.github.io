@@ -1,3 +1,5 @@
+CREATE SCHEMA DW; 
+GO 
 
 CREATE OR ALTER VIEW [DW].[DimDate] AS 
 SELECT [DateKey] AS [OrderDateKey]
