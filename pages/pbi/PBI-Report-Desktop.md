@@ -116,7 +116,7 @@ At end of this stage, you must be on **Report** view (left bar). This is where y
 
     If you prefer coding in the measure, use this instead (with formatting done as above): 
 
-            Profit = SUM('DW FactSales'[Sales]) - SUM('DW FactSales'[Cost])
+        Profit = SUM('DW FactSales'[Sales]) - SUM('DW FactSales'[Cost])
 
     b. **FactSales : Profit Margin**
 
@@ -128,14 +128,14 @@ At end of this stage, you must be on **Report** view (left bar). This is where y
 
     If you prefer coding in the measure, use this instead (with formatting done as above): 
 
-            ProfitMargin = DIVIDE([Profit], SUM('DW FactSales'[Sales]))
+        ProfitMargin = DIVIDE([Profit], SUM('DW FactSales'[Sales]))
     
     c. **FactSales : SalesLY**
 
     - Right click on **FactSales** and select **New Measure**
     - In formular bar, copy paste DAX calculation below: 
         
-            SalesLY = CALCULATE(SUM('DW FactSales'[Sales]), SAMEPERIODLASTYEAR('DW DimDate'[Date]))
+        SalesLY = CALCULATE(SUM('DW FactSales'[Sales]), SAMEPERIODLASTYEAR('DW DimDate'[Date]))
 
     If you see red wiggle in any part of the calculation, please try to debug or consult the instructor.
    
