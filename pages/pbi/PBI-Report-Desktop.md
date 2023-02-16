@@ -40,8 +40,8 @@ Support files (for info):
 # Stage 1: Connect with Data Source 
 1. Open Power BI (PBI) Desktop Utility 
 2. Click on **Get Data**
-3. Select **SQL Server Database**, click **Connect**.
-4. Key in **Server** and **Database** details as provided by the instructor. Ensure **Import** option is selected for **Data Connectivity Model**.
+3. If you are connecting with **SQL Server Database**, click **Connect**. Key in **Server** and **Database** details as provided by the instructor. Ensure **Import** option is selected for **Data Connectivity Model**. 
+4. If you are connecting with **Excel** based data extract, download the extaract from [here]({% link resources/PBIRptDev/AdventworksDW_Extract.xlsx %}) . Select Excel as Data Source and browse to location for this extract file (locally). 
 5. Toggle on / check the checkbox for following entities: 
     - **DW.DimDate**
     - **DW.DimProduct** 
@@ -69,7 +69,7 @@ At end of this stage, you must be on **Report** view (left bar). This is where y
 # Stage 3: Create Report Pages and Visuals
 
 ## Report 1 / 3: Overview
-1. Add Logo 
+- Add Logo 
 
     Download the Adventureworks Logo file locally from [this URL]({% link resources/PBIRptDev/AdventureWorksLogo.jpg %}). 
 
@@ -81,17 +81,29 @@ At end of this stage, you must be on **Report** view (left bar). This is where y
 
     d. Click anywhere in the empty report screen area. 
 
-2. Fiscal Year Slicer (Drop down) 
+- Fiscal Year Slicer (Drop down) 
 
     a. Under **Fields** (right side), check the checkbox in front of **DimDate : FiscalYear**. Under **Visualization**, select **Slicer** (visual).
 
     b. Change the visual to use Dropdown (hover onto slicer visual -> select **down-arrow sign** (top right corner) -> select **Dropdown**).
 
-3. Country Slicer (List)
+- Country Slicer (List)
 
     a. Under **Fields** (right side), check the checkbox in front of **DimSalesPerson : Country**. Under **Visualization**, select **Slicer** (visual). 
 
-4. Add custom calculations
+- Add Date Hierarchy (if not created already or automatically)
+
+    Switch to Data Model mode, under Data, right click on [DW DimDate].[Year] and choose "Create Hierarchy" 
+
+    Under Hierarchy menu (on Properties screen), change the name to "Date Hierarchy" and select following in order within "select a column to add level": 
+    
+    - Quarter
+    - Month 
+    - Date 
+
+    Click on "Apply Level Changes" button at the end. 
+
+- Add custom calculations
 
     a. **FactSales : Profit**
 
@@ -102,6 +114,10 @@ At end of this stage, you must be on **Report** view (left bar). This is where y
     - Under Fields, with **FactSales : Profit** selected, go to **Measure tools** menu (top), and ensure its set as **Format**: **Currency**, **Decimal place**: **0** (not **Auto**)
     - Make sure **FactSales : Sales** too is set to **Currency** format with **0** as decimal place
 
+    If you prefer coding in the measure, use this instead (with formatting done as above): 
+
+            Profit = SUM('DW FactSales'[Sales]) - SUM('DW FactSales'[Cost])
+
     b. **FactSales : Profit Margin**
 
     - Right click on **FactSales** and select **New Quick Measure**
@@ -109,20 +125,24 @@ At end of this stage, you must be on **Report** view (left bar). This is where y
     - Drag **FactSales : Profit** to **Numerator** textbox and **FactSales : Sales** to **Denominator** textbox, press **OK**
     - Rename resulted measure to **Profit Margin**
     - - Under Fields, with **FactSales : Profit** selected, go to **Measure tools** menu (top), and ensure its set as **Format**: **Percentage**, **Decimal places**: **2**
+
+    If you prefer coding in the measure, use this instead (with formatting done as above): 
+
+            ProfitMargin = DIVIDE([Profit], SUM('DW FactSales'[Sales]))
     
     c. **FactSales : SalesLY**
 
     - Right click on **FactSales** and select **New Measure**
     - In formular bar, copy paste DAX calculation below: 
         
-    SalesLY = CALCULATE(SUM('DW FactSales'[Sales]), SAMEPERIODLASTYEAR('DW DimDate'[Date]))
+            SalesLY = CALCULATE(SUM('DW FactSales'[Sales]), SAMEPERIODLASTYEAR('DW DimDate'[Date]))
 
     If you see red wiggle in any part of the calculation, please try to debug or consult the instructor.
    
     - Make sure **FactSales : SalesLY** too is set to **Currency** format with **0** as decimal place
 
    
-5. Add **Line and Stacked Column Chart** visual for **Sales and Profit Margin by Year** (name of visual will populate automatically)
+- Add **Line and Stacked Column Chart** visual for **Sales and Profit Margin by Year** (name of visual will populate automatically)
 
     a. Under **Visualization**, select **Line and Stacked Column Chart**
 
@@ -140,7 +160,7 @@ At end of this stage, you must be on **Report** view (left bar). This is where y
 
     Notice the options like drill down, next level etc. on the top-right corner of the visual. Its because we are using an Hierarchy (**Date**). This allows you to explore data at Year - Quarter - Month - Day levels, cumulatively or for selected value. 
 
-6. Add **Line Chart** Visual for **SalesLY and Sales by Week** (name of visual will populate automatically)
+- Add **Line Chart** Visual for **SalesLY and Sales by Week** (name of visual will populate automatically)
 
     a. Under **Visualization**, select **Line Chart**
 
@@ -154,7 +174,7 @@ At end of this stage, you must be on **Report** view (left bar). This is where y
 
     - With visual selected, select **Format** under **Visualizations**, match the color tone to previous visual. Select a light tone (e.g. light blue) for **Sales** and darker hue (e.g. Dark Blue) for **SalesLY**.
 
-7. Add **Clustered Bar** Visual for **Sales by Category**
+- Add **Clustered Bar** Visual for **Sales by Category**
 
     a. Under **Visualization**, select **Clustered Bar**
 
@@ -162,7 +182,7 @@ At end of this stage, you must be on **Report** view (left bar). This is where y
     - **FactSales : Sales** to **Values** 
     - **DimProduct : Category** to **Axis**
 
-8. Rename this report page to **Overview** (double click on page tab, and key in Overview)
+- Rename this report page to **Overview** (double click on page tab, and key in Overview)
 
 You now should have the report ready. Explore the report, use filters, cross filtering, add 
 
