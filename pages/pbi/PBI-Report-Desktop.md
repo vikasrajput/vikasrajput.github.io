@@ -30,8 +30,8 @@ At the end of this exercise, you should be able to produce a report looking like
     - [Reference](/resources/PBIRptDev/Page4_Performance.png "Performance Report")
  
 Support files (for info): 
-* [Database backup]({% link resources/PBIRptDev/AdventureWorksDW2020.bak %}) 
-* [Database Object Creation Script]({% link resources/PBIRptDev/DW_Views.sql %}) 
+* If using SQL DB, use [Database backup]({% link resources/PBIRptDev/AdventureWorksDW2020.bak %}), and [Database Object Creation Script]({% link resources/PBIRptDev/DW_Views.sql %}) 
+* Alternatively, if using data Extract, use [AdventureWorksDW Extract]({% link resources/PBIRptDev/AdventworksDW_Extract.xlsx %}) 
 
 
 
