@@ -77,6 +77,45 @@ Lab instructions on modelling data in Power BI.
     - Filter Context
         - Regardless of the Query context due to filters, slicers, column or row values, the Filter context is still applied (or overrides the filter context)
         - E.g. grand total using [ALL](https://docs.microsoft.com/en-us/dax/all-function-dax){:target="_blank" rel="noopener"}, selectively clear and apply filters using [ALLEXCEPT](https://docs.microsoft.com/en-us/dax/allexcept-function-dax){:target="_blank" rel="noopener"}
+
+#### Fundamentals 
+- Calculated Columns 
+    - e.g. TargetMonth 
+- Calculated Measures 
+    - Profit, ProfitMargin 
+
+#### DAX Context 
+- Filter Context 
+    - Filter Context: Set of one or more filters (e.g. CalendarYear value clicked, then Eduction value clicked, and then Brand Contoso is clicked). Filter context is not a condition, but a set of filters. 
+    - Experiment
+    
+            TotalSales = SUM('DW FactSales'[Sales])
+        
+            TotalSales(Global) = CALCULATE([TotalSales], ALL('DW FactSales'[Sales]))
+        
+            TotalSales(Globalv2) = IF(ISBLANK([TotalSales]), BLANK(), CALCULATE([TotalSales], REMOVEFILTERS('DW DimSalesPerson'[Country])))
+        
+            TotalSales(NA) = CALCULATE([TotalSales], 'DW DimSalesPerson'[Country] IN {"United States", "Canada"})
+        
+            TotalSalesPercentNA = DIVIDE([TotalSales(NA)], [TotalSales])
+
+- Row Context 
+- Context Transition 
+        MaxOrderdate = MAX('InternetSales'[OrderDate])
+        MaxOrderDate = CALCULATE(MAX('InternetSales'[OrderDate]))
+
+#### Timeseries 
+
+        YTDSales = TOTALYTD([TotalSales], 'DW DimDate'[Date])
+        YTDSalesJuneEnd = TOTALYTD([TotalSales], 'DW DimDate'[Date], "06/30")
+        YTDSalesXmas = TOTALYTD([TotalSales], 'DW DimDate'[Date], 'DW DimDate'[Month] IN {12,1})
+        PriorYearSales = CALCULATE([TotalSales], SAMEPERIODLASTYEAR('DW DimDate'[Date]))
+        PriorYTDSales = CALCULATE([YTDSales], SAMEPERIODLASTYEAR('DW DimDate'[Date]))
+
+#### Semi Additive Measures 
+
+
+
 #### Key DAX Functions 
 - Aggregate: COUNT[X], AVERAGE[X], MAX[X], MIN[X], SUM[X], PRODUCT[X]
 
