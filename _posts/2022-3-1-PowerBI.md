@@ -15,7 +15,6 @@ Being an Architect/Engineer, there are occassions where we mentor business teams
 
 **Collaborate: End Users, Reporting**
 - [PBI Desktop based Dev]({% link pages/pbi/PBI-Report-Desktop.md %}) 
-<!-- OR [PBI Desktop based Dev for Local Extract]({% link pages/pbi/PBI-Report-LocalExtract.md %})  -->
 - [PBI Service based Dev]({% link pages/pbi/PBI-Report-Service.md %})
 - [Advanced Visuals and Pagination]({% link pages/pbi/PBI-Report-Advanced.md %})
 <br>
