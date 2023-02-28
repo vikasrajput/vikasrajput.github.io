@@ -41,7 +41,7 @@ Support files (for info):
 1. Open Power BI (PBI) Desktop Utility 
 2. Click on **Get Data**
 3. If you are connecting with **SQL Server Database**, click **Connect**. Key in **Server** and **Database** details as provided by the instructor. Ensure **Import** option is selected for **Data Connectivity Model**. 
-4. If you are connecting with **Excel** based data extract, download the extaract from [here]({% link resources/PBIRptDev/AdventworksDW_Extract.xlsx %}) . Select Excel as Data Source and browse to location for this extract file (locally). 
+4. If you are connecting with **Excel** based data extract, download the extaract from [here]({% link resources/PBIRptDev/AdventureworksDW_Extract.xlsx %}) . Select Excel as Data Source and browse to location for this extract file (locally). 
 5. Toggle on / check the checkbox for following entities: 
     - **DW.DimDate**
     - **DW.DimProduct** 
