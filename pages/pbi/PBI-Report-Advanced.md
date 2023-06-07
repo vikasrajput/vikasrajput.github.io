@@ -4,11 +4,16 @@ title: Power BI - Advanced Reporting Capabilities
 ---
 Lab instructions on exploring and using additional / advanced PBI reporting capabilities.
 
+**Advanced Visualization Capabilities**
 - [Explainable Analytics](#explainable-analytics-smart-narrative)
 - [Forecasting](#forecasting-line-chart)
 - [Top Down Analysis](#top-down-analysis-decomposition-tree)
 - [Key Influencers](#causation-key-influencers)
+- [Working with Themes](https://learn.microsoft.com/en-us/training/modules/understand-advanced-data-visualization-concepts/2-create-import-custom-report-theme?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.implement-advanced-data-visualization-techniques){:target="_blank" rel="noopener"}
+- [Working with Accessibility](https://learn.microsoft.com/en-us/training/modules/understand-advanced-data-visualization-concepts/4-design-configure-power-bi-reports-for-accessibility?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.implement-advanced-data-visualization-techniques){:target="_blank" rel="noopener"}
+- [Real time analytics](https://learn.microsoft.com/en-us/training/modules/monitor-data-real-time-power-bi/2-describe-power-bi-real-time?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.implement-advanced-data-visualization-techniques){:target="_blank" rel="noopener"}
 - [Paginated Reports](#working-with-paginated-reports)
+- [PBI Application Lifecycle](https://learn.microsoft.com/en-us/training/modules/design-power-bi-application-lifecycle-management-strategy/2-define?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.manage-analytics-development-lifecycle){:target="_blank" rel="noopener"} and [Deployment Strategy](https://learn.microsoft.com/en-us/training/modules/design-power-bi-application-lifecycle-management-strategy/4-design-deployment-strategy?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.manage-analytics-development-lifecycle){:target="_blank" rel="noopener"}
 
 # Advanced Visualization Capabilities 
 
@@ -106,9 +111,9 @@ Open the PBI Desktop file for previously uploaded reports pack. On **Overview** 
 
 Explore the Gallery, and see if you can find Visual options for some of the tools / technology solutions you have already in your environment. 
 
-## Work with Themes 
 
-Explore the options with customizing theme, and exploring Themes Gallery 
+
+## Working with Accessibility 
 
 
 # Working with Paginated Reports 
