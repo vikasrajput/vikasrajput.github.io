@@ -112,10 +112,6 @@ Open the PBI Desktop file for previously uploaded reports pack. On **Overview** 
 Explore the Gallery, and see if you can find Visual options for some of the tools / technology solutions you have already in your environment. 
 
 
-
-## Working with Accessibility 
-
-
 # Working with Paginated Reports 
 
 1. Create a paginated report with Data Source as **SalesAnalysis** PBI Dataset 
