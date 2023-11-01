@@ -10,10 +10,6 @@ permalink: /presentations/
 
 - [Data Career Pathways] (Women in AI, Virtual, 2021)
 
-- [Data Career Pathways] (Women in AI, Virtual, 2021)
-
-- [Humble Azure Cloud Shell] (SQLSaturday, Brisbane, 2019)
-
 - [Humble Azure Cloud Shell] (SQLSaturday, Brisbane, 2019)
 
 - [Data Warehouse in Azure] (SQLSaturday, Melbourne, 2016)
