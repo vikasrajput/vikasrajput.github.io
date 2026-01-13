@@ -8,15 +8,11 @@ permalink: /presentations/
 
 - [Applying WAF to MLOps]({% link resources/presentations/20220927_DataEnggConf_WAF_MLOps.pdf %}){:target="_blank" rel="noopener"} (Data Engineering Conference, Melbourne, 2022)
 
-- [Data Career Pathways] (Women in AI, Virtual, 2021)
+- [Data Workflows in Azure](https://www.youtube.com/watch?v=nQhXEDyj1Rg){:target="_blank" rel="noopener"}
 
-- [Humble Azure Cloud Shell] (SQLSaturday, Brisbane, 2019)
+- [Humble Azure Cloud Shell]({% link resources/presentations/SQLSaturday838_AzureShellSession.pdf %}){:target="_blank" rel="noopener"} (SQLSaturday, Brisbane, 2019)
 
-- [Data Warehouse in Azure] (SQLSaturday, Melbourne, 2016)
-
-- [Predictive Analytics using Azure Machine Learning] (SQLSaturday, Melbourne, 2015)
-
-- [BI/BA - Two sides of same coin] (Delhi School of Economics, Delhi, 2013)
+- [Data Warehouse in Azure]({% link resources/presentations/SQLSaturday464_AzureDataWarehouse-IntroAndDemo.pdf %}){:target="_blank" rel="noopener"} (SQLSaturday, Melbourne, 2016)
 
 
 
