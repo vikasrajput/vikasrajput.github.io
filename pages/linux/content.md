@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Content (file, folder and storage) Management
+title: Manage Content (file, folder, storage) on Linux
 ---
 * File operations 
 * Hard and soft links

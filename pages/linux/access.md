@@ -1,6 +1,6 @@
 ---
 layout: page
-title: System Access and Safety
+title: User Management on Linux
 ---
 * Login methods (local, SSH)
 * Users and Groups

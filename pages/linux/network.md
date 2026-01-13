@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Networking 
+title: Networking for Linux
 ---
 * IP addressing 
 * DNS resolution 

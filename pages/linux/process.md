@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Process and Resource Awareness
+title: Manage Jobs and Processes on Linux
 ---
 * Running processes 
 * Jobs Management  
@@ -9,5 +9,4 @@ title: Process and Resource Awareness
 * Error Managment
   * zombie / stuck processes 
 * Foreground vs background jobs
-* Job Control, Config and Monitoring 
-* Automation (scheduling, monitoring)
+* Job Management and Monitoring 
