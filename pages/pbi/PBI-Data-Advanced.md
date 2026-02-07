@@ -9,9 +9,9 @@ Lab instructions and notes on some of the advanced data topics in Power BI.
     - [Performance Analyzer](#performance-analyzer)
     - [User Aggregation](#user-aggregations)
 
-- [Explore PBI Service (Dataset)](./PBI-Report-Advanced.md#explore-the-service){:target="_blank" rel="noopener"} 
-- [Workspace and App](./PBI-Report-Advanced.md#create-a-workspace-and-app){:target="_blank" rel="noopener"}
-- [Paginated Report](./PBI-Report-Advanced.md#working-with-paginated-reports){:target="_blank" rel="noopener"} 
+- [Explore PBI Service (Dataset)](PBI-Report-Advanced.md#explore-the-service){:target="_blank" rel="noopener"} 
+- [Workspace and App](PBI-Report-Advanced.md#create-a-workspace-and-app){:target="_blank" rel="noopener"}
+- [Paginated Report](PBI-Report-Advanced.md#working-with-paginated-reports){:target="_blank" rel="noopener"} 
 
 
 ## DirectQuery 
