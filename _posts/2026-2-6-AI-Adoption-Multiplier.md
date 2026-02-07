@@ -3,8 +3,9 @@ layout: post
 title: Tales of new eating old
 ---
 
-Tired of hearing “AI is eating software”? 
-Me too. I have been trying to cut through the noise and look at what’s really happening in large, engg-driven Org’s and Teams. Not hype but change that’s reshaping engineering and business.
+Tired of hearing “AI is eating software”? What’s really happening in large, Engg Org’s? Not hype, but change that’s reshaping engineering and business.
+
+Lets connect back first. Pivotal shifts have happened in past too. Nearest one's being DevOps and Data Warehouse.
 
 ## DevOps
 **Pre-DevOps**, software design and delivery was optimized for control, predictability. Changes were expensive. Environments were scarce and sacred. Structurally, systems were large, tightly coupled. Interestingly, there were fewer options for everything. 
@@ -44,4 +45,3 @@ From an **engineering leadership view**, this forces hard decisions:
 And from an **economic perspective**, this is the real shift: Value moves towards intelligence. The takeaway isn’t “everything becomes AI.” It’s that, going forward, true architecture value (and cost) is around intelligence, not integration. 
 
 **Engineering teams that understand this early will design systems that age well, are good value (for business) and truly AI-enabled.**
-
