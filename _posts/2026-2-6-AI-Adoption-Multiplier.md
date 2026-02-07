@@ -32,7 +32,7 @@ From an **engineering perspective**, a big shift is that control logic can be mo
 
 From an **architecture standpoint**, this doesn’t mean integration, networking, or infrastructure disappear. They still execute the real work. APIs are still called. Messages still flow. Data still moves. 
 
-It’s critical to recognize that change is where intelligence (now) sits.
+**It’s critical to recognize that change is where intelligence (now) sits.**
 
 Execution layers become thinner, interchangeable, and more price or personalization sensitive. Intelligence concentrates around AI orchestration, data platforms, and event-driven runtimes. In practice, I expect this to show up as faster growth in AI, data, serverless, and security capabilities – while **classic integration and networking remain essential (and relevant)** but increasingly commoditized.
 
@@ -43,4 +43,5 @@ From an **engineering leadership view**, this forces hard decisions:
 
 And from an **economic perspective**, this is the real shift: Value moves towards intelligence. The takeaway isn’t “everything becomes AI.” It’s that, going forward, true architecture value (and cost) is around intelligence, not integration. 
 
-`Engineering teams that understand this early will design systems that age well, are good value (for business) and truly AI-enabled.`
+**Engineering teams that understand this early will design systems that age well, are good value (for business) and truly AI-enabled.**
+
