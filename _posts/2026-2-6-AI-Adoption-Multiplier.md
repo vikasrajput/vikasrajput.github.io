@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tales of new eating old (tech)…
+title: Tales of new eating old
 ---
 
 Tired of hearing “AI is eating software”? 
