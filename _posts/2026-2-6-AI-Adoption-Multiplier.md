@@ -25,15 +25,13 @@ This one is tough to land - especially if you are a data lake person and tend sp
 I see both DevOps and Data Warehouse moving business forward. Most critically, they represented a progression, not replacement. There were some structural changes. But it wasn’t a knockdown rebuild. It was either a recognizable (new) build on top of good bones, or an extension (small or large). 
 
 ## AI as Adoption Multiplier
-I don’t think AI is eating or is meant to eat Software. 
+I see AI as an **Adoption Multiplier** – not as the one eating or replacing software. Thinking in terms of systems and cloud (not productivity suites, pure play embedded/AI), it doesn’t add a new layer, it rearranges where value lives. 
 
-I see AI as an **Adoption Multiplier** – not as the one eating or replacing software. Thinking in terms of systems and cloud, it doesn’t add a new layer, it rearranges where value lives. 
+From an **engineering perspective**, a big shift is that control logic is seen moving out of static middleware and into probabilistic AI reasoning. Agents decide which APIs to call, how to sequence workflows, how to adapt schemas, and how to recover from errors — dynamically. That’s not a new tool; that’s a new control plane.
 
-From an **engineering perspective**, a big shift is that control logic can be moved out of static middleware and into probabilistic AI reasoning. Agents decide which APIs to call, how to sequence workflows, how to adapt schemas, and how to recover from errors — dynamically. That’s not a new tool; that’s a new control plane.
+From an **architecture standpoint**, this doesn’t mean integration, networking, or other pre-existing infrastructure is not needed. They still execute the real work. APIs are still called. Messages still flow. Data still moves. 
 
-From an **architecture standpoint**, this doesn’t mean integration, networking, or infrastructure disappear. They still execute the real work. APIs are still called. Messages still flow. Data still moves. 
-
-**It’s critical to recognize that change is where intelligence (now) sits.**
+**It’s critical to recognize that change is where intelligence sits now.**
 
 Execution layers become thinner, interchangeable, and more price or personalization sensitive. Intelligence concentrates around AI orchestration, data platforms, and event-driven runtimes. In practice, I expect this to show up as faster growth in AI, data, serverless, and security capabilities – while **classic integration and networking remain essential (and relevant)** but increasingly commoditized.
 
