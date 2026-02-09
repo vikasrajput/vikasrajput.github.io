@@ -36,9 +36,9 @@ From an **architecture standpoint**, this doesn’t mean integration, networking
 Execution layers become thinner, interchangeable, and more price or personalization sensitive. Intelligence concentrates around AI orchestration, data platforms, and event-driven runtimes. In practice, I expect this to show up as faster growth in AI, data, serverless, and security capabilities – while **classic integration and networking remain essential (and relevant)** but increasingly commoditized.
 
 From an **engineering leadership view**, this forces hard decisions:
-•	Do we want to own the decision-making, or just the plumbing?
-•	Do we want to optimize deterministic control, or adaptive reasoning?
-•	Are we measuring value by system complexity, or by business outcomes delivered per unit of compute or infra? And does it matter if we own that compute or infra? 
+* Do we want to own the decision-making, or just the plumbing?
+* Do we want to optimize deterministic control, or adaptive reasoning?
+* Are we measuring value by system complexity, or by business outcomes delivered per unit of compute or infra? And does it matter if we own that compute or infra? 
 
 And from an **economic perspective**, this is the real shift: Value moves towards intelligence. The takeaway isn’t “everything becomes AI.” It’s that, going forward, true architecture value (and cost) is around intelligence, not integration. 
 
