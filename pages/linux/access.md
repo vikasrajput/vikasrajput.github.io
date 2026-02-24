@@ -15,9 +15,25 @@ title: User Management on Linux
 * `lastlog -u username` when did user logged last
 * `sudo lastb | grep username` -- login records
 ## Manage
+* adduser -- preferred over useradd which is low level utility 
+* usermod -- modify user
 # Groups
 	 
 * Root access vs sudo
 * Permissions & ownership
 * Filesystem hierarchy understanding
 * Key config and logging
+# Ref 
+## User Info 
+* /etc/passwd
+* /etc/shadow 
+* /etc/login.defs 
+## Group 
+* /etc/group 
+* /etc/gshadow 
+## Privilege 
+* /etc/sudoers 
+## Home Skeleton 
+* /etc/skel/
+## Authentication Logs
+* /var/log/auth.log 

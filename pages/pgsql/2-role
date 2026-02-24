@@ -1,0 +1,20 @@
+---
+layout: page
+title: Notes on Spark (Definitive Guide)
+---
+
+* sudo -io postgres psql 
+* postgres=# CREATE ROLE pgsqlusr WITH LOGIN CREATEDB CREATEROLE PASSWORD 'password'; 
+* postgres=# \du 
+
+* sudo vi /etc/postgresql/14/main/pg_hba.conf (edit to add local all pgsqlusr md5)
+* sudo systemctl reload postgresql (reload config, not restart server)
+* psql -U pgsqlusr -d postgres (provide the password)
+* postgres=# CREATE DATABASE appdb OWNER pgsqlusr;
+* postgres=# \c appdb 
+* appdb=# SELECT current_database(), current_user;
+* appdb=> CREATE SCHEMA app AUTHORIZATION pgsqlusr; 
+* appdb=> SET search_path TO app, public; 
+* appdb=> CREATE TABLE app.accounts (id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY, owner text NOT NULL, balance integer NOT NULL); 
+* INSERT INTO app.accounts (owner, balance) VALUES ('alice',100),('bob',100);
+* SELECT * FROM app.accounts;

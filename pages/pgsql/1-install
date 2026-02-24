@@ -1,0 +1,18 @@
+---
+layout: page
+title: Notes on Spark (Definitive Guide)
+---
+
+# Ubuntu 
+* sudo apt update (refresh registry for update)
+* sudo apt install -y postgresql postgresql-client postgresql-contrib (install pgsql, client and needed packages)
+* psql --version (validate installation)
+* pg_lsclusters (pg_cluster tooling. note port:5432 and data dir:/var/lib/postgresql/14/main/)
+* dpkg -l | grep postgresql (checking all packages installed for pgsql)
+* systemctl status postgresql@14-main.service (checking server status )
+* sudo -iu postgres psql 
+* postgres=# SELECT current_user, current_database(); 
+* postgres=# SHOW config_file; 
+* postgres=# SHOW hba_file; 
+* postgres=# SHOW data_directory;
+* postgres=# \conninfo 
