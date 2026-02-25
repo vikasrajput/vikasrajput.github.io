@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Engineering Leadership Lessons from Clarkson's Farm
+title: Engineering Leadership Lessons from Clarksons Farm
 ---
 What being an Engineering Leader is like after all? For starters (pun intended), it starts with some Engineering. Give me an engaging, deeply ingrained, whiteboard-led, knowing how page 404 works any day. Very importantly, its carrying that "this is my team" sense. And don't miss having fun - in every process. 
 
