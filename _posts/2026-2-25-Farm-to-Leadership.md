@@ -70,4 +70,4 @@ Here's my raw take on few stories and my extract from them. Reach out if they re
 
 
 **Core Engineering Leadership Patterns:**  
-**Observe reality → Engage expertise → Learn fast → Adapt system → Deliver value → Sustain team & system health**
+Acknowledge (reality) → Engage (expertise) → Learn (fast) → Adapt (system) → Deliver (value) → Sustain team & system health
