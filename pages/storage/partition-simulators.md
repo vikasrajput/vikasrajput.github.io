@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Azure Storage – Partition Strategy Simulators
 ---
 
@@ -28,11 +28,7 @@ title: Azure Storage – Partition Strategy Simulators
 
 <div class="sim-hub">
 
-  <p class="intro">
-    Azure Storage services use different partitioning strategies. Choosing the right approach is critical for
-    throughput, latency, and cost. Use these interactive simulators to model your workload and see the impact
-    before deploying.
-  </p>
+
 
   <div class="concept-box">
     <h4>Why Partitioning Matters</h4>
