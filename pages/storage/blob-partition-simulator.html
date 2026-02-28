@@ -1,0 +1,449 @@
+---
+layout: page
+title: Azure Blob Storage – Partition Strategy Simulator
+---
+
+<style>
+  .sim-container { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+  .sim-section { background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+  .sim-section h3 { margin-top: 0; color: #222; border-bottom: 2px solid #4183C4; padding-bottom: 8px; }
+  .sim-row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 14px; align-items: center; }
+  .sim-row label { font-weight: 600; min-width: 180px; color: #333; font-size: 13px; }
+  .sim-row select, .sim-row input[type="number"], .sim-row input[type="range"] { padding: 6px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; }
+  .sim-row select { min-width: 220px; }
+  .sim-row input[type="number"] { width: 120px; }
+  .sim-row input[type="range"] { width: 200px; }
+  .sim-row .range-val { font-size: 12px; color: #666; min-width: 60px; }
+  .sim-btn { background: #4183C4; color: #fff; border: none; padding: 10px 28px; border-radius: 5px; font-size: 14px; cursor: pointer; margin-top: 10px; }
+  .sim-btn:hover { background: #3572a5; }
+  .sim-results { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+  .sim-card { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 14px; text-align: center; }
+  .sim-card .val { font-size: 28px; font-weight: 700; color: #4183C4; }
+  .sim-card .lbl { font-size: 12px; color: #666; margin-top: 4px; }
+  .sim-warning { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: #856404; }
+  .sim-success { background: #d4edda; border: 1px solid #28a745; border-radius: 6px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: #155724; }
+  .sim-info { background: #d1ecf1; border: 1px solid #17a2b8; border-radius: 6px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: #0c5460; }
+  .chart-container { position: relative; height: 300px; margin-bottom: 16px; }
+  .rec-list { list-style: none; padding: 0; }
+  .rec-list li { padding: 8px 12px; margin-bottom: 6px; background: #fff; border-left: 4px solid #4183C4; border-radius: 0 4px 4px 0; font-size: 13px; }
+  .rec-list li.warn { border-left-color: #ffc107; }
+  .rec-list li.danger { border-left-color: #dc3545; }
+  .naming-example { background: #f0f0f0; padding: 10px 14px; border-radius: 4px; font-family: monospace; font-size: 13px; margin: 8px 0; word-break: break-all; }
+  .hidden { display: none; }
+  @media screen and (max-width: 640px) {
+    .sim-results { grid-template-columns: 1fr; }
+    .sim-row { flex-direction: column; gap: 6px; }
+    .sim-row label { min-width: auto; }
+  }
+</style>
+
+<div class="sim-container">
+
+  <p style="color:#666; font-size:13px; margin-bottom:20px;">
+    Azure Blob Storage automatically partitions data based on <strong>blob name prefixes</strong>. Sequential or timestamp-prefixed names can create hot partition servers. 
+    This simulator helps you visualize how different naming conventions affect partition distribution and throughput.
+  </p>
+
+  <!-- INPUT SECTION -->
+  <div class="sim-section">
+    <h3>⚙️ Configuration</h3>
+
+    <div class="sim-row">
+      <label for="namingPattern">Blob Naming Pattern</label>
+      <select id="namingPattern" onchange="onPatternChange()">
+        <option value="sequential">Sequential (0001, 0002, ...)</option>
+        <option value="timestamp">Timestamp-prefixed (yyyyMMdd/HHmmss_*)</option>
+        <option value="hash-prefix">Hash-prefix (3-char hash + name)</option>
+        <option value="reverse-timestamp">Reverse-timestamp (ticks_*)</option>
+        <option value="guid-prefix">GUID-prefix (guid/name)</option>
+        <option value="category-date">Category/date path (logs/2026/02/28/file)</option>
+      </select>
+    </div>
+
+    <div class="sim-row" id="exampleRow">
+      <label>Example Blob Name</label>
+      <div class="naming-example" id="namingExample">0000001.json</div>
+    </div>
+
+    <div class="sim-row">
+      <label for="blobCount">Total Blobs</label>
+      <input type="range" id="blobCount" min="100" max="5000000" step="100" value="500000" oninput="updateBlobLabel()">
+      <span class="range-val" id="blobCountLabel">500,000</span>
+    </div>
+
+    <div class="sim-row">
+      <label for="containerStrategy">Container Strategy</label>
+      <select id="containerStrategy">
+        <option value="single">Single Container</option>
+        <option value="by-date">Split by Month</option>
+        <option value="by-category">Split by Category</option>
+      </select>
+    </div>
+
+    <div class="sim-row">
+      <label for="blobCategories">Number of Categories/Sources</label>
+      <input type="number" id="blobCategories" value="5" min="1" max="100">
+    </div>
+
+    <div class="sim-row">
+      <label for="blobTimeSpan">Time Span (days)</label>
+      <input type="number" id="blobTimeSpan" value="90" min="1" max="3650">
+    </div>
+
+    <div class="sim-row">
+      <label for="blobOpsPerSec">Target Requests/sec</label>
+      <input type="number" id="blobOpsPerSec" value="10000" min="100" max="500000">
+    </div>
+
+    <div class="sim-row">
+      <label for="accessPattern">Access Pattern</label>
+      <select id="accessPattern">
+        <option value="uniform">Uniform (all blobs equally)</option>
+        <option value="recent">Recent-focused (80% to newest)</option>Azure Storage
+        <option value="hot-cold">Hot/cold (few blobs read often)</option>
+      </select>
+    </div>
+
+    <button class="sim-btn" onclick="runBlobSim()">▶ Run Simulation</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="resultsPanel" class="hidden">
+
+    <div class="sim-section">
+      <h3>📊 Results Summary</h3>
+      <div id="alertArea"></div>
+      <div class="sim-results">
+        <div class="sim-card"><div class="val" id="resPartServers">-</div><div class="lbl">Estimated Partition Ranges</div></div>
+        <div class="sim-card"><div class="val" id="resMaxBlobs">-</div><div class="lbl">Max Blobs / Partition</div></div>
+        <div class="sim-card"><div class="val" id="resHotPercent">-</div><div class="lbl">Traffic on Hottest Partition</div></div>
+        <div class="sim-card"><div class="val" id="resBlobPerSec">-</div><div class="lbl">Peak Req/sec on Hottest</div></div>
+      </div>
+    </div>
+
+    <div class="sim-section">
+      <h3>📈 Partition Server Distribution</h3>
+      <p style="font-size:12px;color:#888;">Estimated blob count per partition range (based on name-prefix bucketing)</p>
+      <div class="chart-container">
+        <canvas id="distChart"></canvas>
+      </div>
+    </div>
+
+    <div class="sim-section">
+      <h3>🌡️ Request Load Distribution</h3>
+      <p style="font-size:12px;color:#888;">Estimated requests/sec per partition range</p>
+      <div class="chart-container">
+        <canvas id="loadChart"></canvas>
+      </div>
+    </div>
+
+    <div class="sim-section">
+      <h3>💡 Recommendations</h3>
+      <ul class="rec-list" id="recList"></ul>
+    </div>
+
+    <div class="sim-section">
+      <h3>📚 How Blob Naming Affects Partitioning</h3>
+      <div class="sim-info">
+        <strong>Azure Blob Storage Partition Facts:</strong><br>
+        • Blobs are partitioned by <strong>container + blob name</strong><br>
+        • Azure auto-splits partition ranges when traffic increases, but sequential prefixes limit this<br>
+        • Single blob throughput: up to <strong>60 MiB/s</strong> (500 req/s for smaller ops)<br>
+        • Single partition range: up to <strong>20,000 req/sec</strong> before auto-split is triggered<br>
+        • Storage account: <strong>20,000 req/sec</strong> ingress (region-dependent)
+      </div>
+      <table style="width:100%;font-size:13px;border-collapse:collapse;margin-top:10px;">
+        <thead><tr style="background:#4183C4;color:#fff;">
+          <th style="padding:8px;text-align:left;">Naming Pattern</th>
+          <th style="padding:8px;text-align:left;">Partition Spread</th>
+          <th style="padding:8px;text-align:left;">Risk</th>
+        </tr></thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #ddd;"><td style="padding:8px;"><code>0001, 0002, ...</code></td><td style="padding:8px;">Poor — all names share prefix range</td><td style="padding:8px;">High — hot partition</td></tr>
+          <tr style="border-bottom:1px solid #ddd;"><td style="padding:8px;"><code>20260228/data_*</code></td><td style="padding:8px;">Moderate — grouped by date prefix</td><td style="padding:8px;">Today's range overloaded</td></tr>
+          <tr style="border-bottom:1px solid #ddd;"><td style="padding:8px;"><code>a3f_blobname</code></td><td style="padding:8px;">Excellent — hash distributes evenly</td><td style="padding:8px;">Low</td></tr>
+          <tr style="border-bottom:1px solid #ddd;"><td style="padding:8px;"><code>9876543210_*</code> (reverse ticks)</td><td style="padding:8px;">Good — shifts hot range constantly</td><td style="padding:8px;">Low</td></tr>
+          <tr><td style="padding:8px;"><code>guid/blobname</code></td><td style="padding:8px;">Excellent — random distribution</td><td style="padding:8px;">Loses natural grouping</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+(function() {
+  const $ = id => document.getElementById(id);
+  const fmt = n => n >= 1e6 ? (n/1e6).toFixed(1)+'M' : n >= 1e3 ? (n/1e3).toFixed(1)+'K' : n.toString();
+
+  const NAMING_EXAMPLES = {
+    'sequential':         '0000001.json, 0000002.json, 0000003.json',
+    'timestamp':          '20260228/143022_sensor01.json',
+    'hash-prefix':        'a3f_sensor01_20260228.json',
+    'reverse-timestamp':  '2519873097760_sensor01.json',
+    'guid-prefix':        'b3c1d2e4-f5a6/sensor01.json',
+    'category-date':      'logs/2026/02/28/app01_143022.json'
+  };
+
+  window.onPatternChange = function() {
+    $('namingExample').textContent = NAMING_EXAMPLES[$('namingPattern').value] || '';
+  };
+
+  window.updateBlobLabel = function() {
+    $('blobCountLabel').textContent = Number($('blobCount').value).toLocaleString();
+  };
+
+  document.addEventListener('DOMContentLoaded', onPatternChange);
+
+  // Simple hash for consistent bucketing
+  function simpleHash(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;
+    }
+    return Math.abs(hash);
+  }
+
+  // Partition range buckets: simulate the first few chars of blob name → bucket
+  const HEX_RANGES = '0123456789abcdef'.split('');
+  const ALPHA_RANGES = 'abcdefghijklmnop'.split(''); // 16 buckets
+
+  function getBucketKey(namingPattern, index, totalDays, categories, day, cat) {
+    switch(namingPattern) {
+      case 'sequential': {
+        // Blobs named like 0000001 — all start with "0" → very few distinct prefixes
+        const name = String(index).padStart(7, '0');
+        return name.charAt(0); // clusters into "0", maybe "1" for very large
+      }
+      case 'timestamp': {
+        // yyyyMMdd prefix — bucket by date prefix
+        const d = String(day).padStart(4, '0');
+        return 'D' + d.substring(0, 2); // groups into ~N/100 day ranges
+      }
+      case 'hash-prefix': {
+        // Hash first 3 chars e.g., a3f — distribute into hex prefix
+        const h = simpleHash('blob_' + index + '_' + cat);
+        return HEX_RANGES[h % 16];
+      }
+      case 'reverse-timestamp': {
+        // Reverse ticks: leading digits change with time
+        const ticks = (totalDays - day) * 86400 + (index % 86400);
+        const rev = String(ticks).padStart(13, '0');
+        return rev.charAt(0) + rev.charAt(1);
+      }
+      case 'guid-prefix': {
+        const h = simpleHash('guid_' + index);
+        return HEX_RANGES[h % 16];
+      }
+      case 'category-date': {
+        return 'C' + String(cat).padStart(2,'0') + '/D' + String(Math.floor(day/30)).padStart(2,'0');
+      }
+      default:
+        return '0';
+    }
+  }
+
+  let distChartInstance = null;
+  let loadChartInstance = null;
+
+  window.runBlobSim = function() {
+    const pattern = $('namingPattern').value;
+    const blobCount = Number($('blobCount').value);
+    const categories = Number($('blobCategories').value) || 5;
+    const days = Number($('blobTimeSpan').value) || 90;
+    const opsPerSec = Number($('blobOpsPerSec').value) || 10000;
+    const accessPattern = $('accessPattern').value;
+    const containerStrategy = $('containerStrategy').value;
+
+    const sample = Math.min(blobCount, 500000);
+    const scale = blobCount / sample;
+
+    // Build partition buckets
+    const buckets = {};
+    for (let i = 0; i < sample; i++) {
+      const day = Math.floor(Math.random() * days);
+      const cat = Math.floor(Math.random() * categories);
+      let key = getBucketKey(pattern, i, days, categories, day, cat);
+
+      // Container strategy can further split
+      if (containerStrategy === 'by-date') {
+        key = 'M' + String(Math.floor(day/30)).padStart(2,'0') + '/' + key;
+      } else if (containerStrategy === 'by-category') {
+        key = 'C' + String(cat).padStart(2,'0') + '/' + key;
+      }
+
+      buckets[key] = (buckets[key] || 0) + 1;
+    }
+
+    // Scale
+    const parts = {};
+    for (const [k, v] of Object.entries(buckets)) {
+      parts[k] = Math.round(v * scale);
+    }
+
+    const keys = Object.keys(parts).sort();
+    const values = keys.map(k => parts[k]);
+    const totalParts = keys.length;
+    const maxBlobs = Math.max(...values);
+    const totalBlobs = values.reduce((a,b) => a+b, 0);
+
+    // Traffic distribution based on access pattern
+    const traffic = {};
+    let totalTraffic = 0;
+    for (const k of keys) {
+      let weight = parts[k] / totalBlobs; // base: proportional to blob count
+      if (accessPattern === 'recent') {
+        // Recent keys get more traffic
+        const idx = keys.indexOf(k);
+        const recency = (idx + 1) / keys.length;
+        weight = weight * (0.2 + 0.8 * recency * recency);
+      } else if (accessPattern === 'hot-cold') {
+        // Top 10% of partitions by size get 90% of traffic
+        const rank = values.slice().sort((a,b) => b-a).indexOf(parts[k]);
+        if (rank < totalParts * 0.1) weight *= 9;
+      }
+      traffic[k] = weight;
+      totalTraffic += weight;
+    }
+
+    // Normalize traffic
+    for (const k of keys) {
+      traffic[k] = Math.round(opsPerSec * (traffic[k] / totalTraffic));
+    }
+
+    const peakTraffic = Math.max(...keys.map(k => traffic[k]));
+    const hotPartPercent = ((maxBlobs / totalBlobs) * 100).toFixed(1);
+
+    // --- Display ---
+    $('resultsPanel').classList.remove('hidden');
+    $('resPartServers').textContent = fmt(totalParts);
+    $('resMaxBlobs').textContent = fmt(maxBlobs);
+    $('resHotPercent').textContent = hotPartPercent + '%';
+    $('resBlobPerSec').textContent = fmt(peakTraffic);
+
+    // Alerts
+    const PART_LIMIT = 20000;
+    let al = '';
+    if (peakTraffic > PART_LIMIT) {
+      al += '<div class="sim-warning">⚠️ <strong>Hot partition range!</strong> Peak ' + peakTraffic.toLocaleString() + ' req/sec exceeds the ~20,000 req/sec auto-split threshold. Azure will try to re-balance, but sustained hot-spotting causes throttling (HTTP 503).</div>';
+    }
+    if (totalParts <= 2 && blobCount > 10000) {
+      al += '<div class="sim-warning">⚠️ <strong>Very few distinct name prefixes.</strong> All blobs route to 1–2 partition servers. This limits throughput and prevents Azure from load-balancing.</div>';
+    }
+    if (peakTraffic <= PART_LIMIT && totalParts > 2) {
+      al += '<div class="sim-success">✅ <strong>Good distribution.</strong> Name prefixes spread across ' + totalParts + ' partition ranges. Peak load (' + peakTraffic.toLocaleString() + ' req/sec) is within limits.</div>';
+    }
+    $('alertArea').innerHTML = al;
+
+    // Charts — top 40
+    const topN = 40;
+    const sorted = keys.map(k => ({key: k, blobs: parts[k], ops: traffic[k]}))
+                       .sort((a,b) => b.blobs - a.blobs)
+                       .slice(0, topN);
+    const cLabels = sorted.map(s => s.key.length > 16 ? s.key.substring(0,16)+'…' : s.key);
+    const cData = sorted.map(s => s.blobs);
+    const cOps = sorted.map(s => s.ops);
+
+    if (distChartInstance) distChartInstance.destroy();
+    distChartInstance = new Chart($('distChart'), {
+      type: 'bar',
+      data: {
+        labels: cLabels,
+        datasets: [{
+          label: 'Blobs',
+          data: cData,
+          backgroundColor: cData.map(v => v === maxBlobs ? '#dc3545' : '#4183C4'),
+          borderRadius: 3
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { maxRotation: 65, font: { size: 10 } } },
+          y: { beginAtZero: true, title: { display: true, text: 'Blob Count' } }
+        }
+      }
+    });
+
+    if (loadChartInstance) loadChartInstance.destroy();
+    loadChartInstance = new Chart($('loadChart'), {
+      type: 'bar',
+      data: {
+        labels: cLabels,
+        datasets: [{
+          label: 'Req/sec',
+          data: cOps,
+          backgroundColor: cOps.map(v => v > PART_LIMIT ? '#dc3545' : v > PART_LIMIT*0.7 ? '#ffc107' : '#28a745'),
+          borderRadius: 3
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { maxRotation: 65, font: { size: 10 } } },
+          y: { beginAtZero: true, title: { display: true, text: 'Requests/sec' } }
+        }
+      }
+    });
+
+    // Recommendations
+    const recs = blobRecommendations(pattern, totalParts, maxBlobs, totalBlobs, peakTraffic, accessPattern, containerStrategy, blobCount);
+    $('recList').innerHTML = recs.map(r => '<li class="'+r.level+'">'+r.text+'</li>').join('');
+
+    $('resultsPanel').scrollIntoView({ behavior: 'smooth' });
+  };
+
+  function blobRecommendations(pattern, parts, maxB, totalB, peakOps, access, container, count) {
+    const recs = [];
+    const skew = maxB / Math.max(totalB / parts, 1);
+    const LIMIT = 20000;
+
+    if (pattern === 'sequential') {
+      recs.push({ level: 'danger', text: '<strong>Sequential naming is the #1 anti-pattern</strong> for Blob Storage. Names like 0001, 0002, ... share the same prefix range and route to one partition server. Add a 3–6 character hash prefix: <code>a3f_0001.json</code>.' });
+    }
+    if (pattern === 'timestamp') {
+      recs.push({ level: 'warn', text: 'Timestamp-prefixed names group today\'s writes onto one partition range. Consider <strong>reverse-timestamp</strong> or prepend a hash: <code>a3f/20260228/data.json</code>.' });
+    }
+    if (pattern === 'hash-prefix' || pattern === 'guid-prefix') {
+      recs.push({ level: '', text: '✓ Hash/GUID prefixes provide excellent distribution across partition servers. This is the recommended pattern for high-throughput workloads.' });
+    }
+    if (pattern === 'reverse-timestamp') {
+      recs.push({ level: '', text: '✓ Reverse-timestamp shifts the hot prefix with each new write, naturally distributing load. Good for append-heavy workloads like logs.' });
+    }
+    if (pattern === 'category-date') {
+      recs.push({ level: '', text: 'Category/date paths provide logical grouping for listing operations. Distribution quality depends on how many distinct categories exist.' });
+      if (parts < 10) {
+        recs.push({ level: 'warn', text: 'Few categories result in few distinct prefixes. Consider adding a hash sublevel within each category.' });
+      }
+    }
+
+    if (peakOps > LIMIT) {
+      recs.push({ level: 'danger', text: '<strong>Throttling risk:</strong> Peak partition range handles ' + peakOps.toLocaleString() + ' req/sec. Azure will return HTTP 503 (Server Busy) when throttled. Spread writes across more prefix ranges.' });
+    }
+
+    if (container === 'single' && count > 1000000) {
+      recs.push({ level: 'warn', text: 'Single container with ' + fmt(count) + ' blobs can slow list operations. Consider splitting into multiple containers (by date or category) for easier management.' });
+    }
+    if (container === 'by-date') {
+      recs.push({ level: '', text: 'Monthly containers isolate listing scope and can have different access tiers (Hot → Cool → Archive) as data ages.' });
+    }
+
+    if (access === 'hot-cold') {
+      recs.push({ level: '', text: '<strong>Hot/Cold pattern:</strong> Use Azure Blob access tiers — Hot for frequently accessed blobs, Cool/Archive for cold data. Consider Lifecycle Management policies to auto-tier.' });
+    }
+    if (access === 'recent') {
+      recs.push({ level: '', text: 'Recent-focused access means today\'s partition sees the most traffic. Combine with a hash prefix to fan writes across partition servers even for the latest data.' });
+    }
+
+    if (skew > 5 && parts > 1) {
+      recs.push({ level: 'warn', text: '<strong>Uneven distribution:</strong> The largest partition has ' + skew.toFixed(1) + '× the average. This limits Azure\'s ability to auto-balance across servers.' });
+    }
+
+    recs.push({ level: '', text: '<strong>Tip:</strong> Use <code>x-ms-request-id</code> and Storage Analytics logs to identify actual hot partitions in production.' });
+
+    return recs;
+  }
+})();
+</script>

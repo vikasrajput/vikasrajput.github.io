@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Public Speaking - Presentations
-permalink: /presentations/
+title: Public Speaking - Presentation
+permalink: /presentation/
 ---
 
 - [Microsoft Tech Brief: Migrate and Secure Linux, PostgreSQL and MySQL](https://msevents.microsoft.com/event?id=3036463839&wt.mc_id=AID3075982_QSG_EML_662893%3Focid%3Deml_pg481019_gdc_comm_az&mkt_tok=MTU3LUdRRS0zODIAAAGaPuQCTd4fD0_1hhowQJ7CsYinSlhE3pegNRIF6towrLQoo61VNDu5lWZP_gTlrPkBWo2XrYXbIcqInkcRM01x3mPA_VBwW0_1OTG70Oxg_1ByrM2fQvWEkAYn) (Online, 2025)
