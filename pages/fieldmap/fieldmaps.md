@@ -4,7 +4,7 @@ title: Field Maps for Data Services
 ---
 
 <br>
-[MySQL]({% link azmysql.md %}) &emsp; &emsp; | &emsp; &emsp; [PostgreSQL]({% link azpgsql.md %})  &emsp; &emsp; | &emsp; &emsp; [SQL Server]({% link sql2022.md %})  &emsp; &emsp; | &emsp; &emsp;  [Azure SQL]({% link azsql.md %})
+[MySQL]({% link pages/fieldmap/azmysql.pdf %}) &emsp; &emsp; | &emsp; &emsp; [PostgreSQL]({% link pages/fieldmap/azpgsql.pdf %})  &emsp; &emsp; | &emsp; &emsp; [SQL Server]({% link pages/fieldmap/sql2022.pdf %})  &emsp; &emsp; | &emsp; &emsp;  [Azure SQL]({% link pages/fieldmap/azsql.pdf %})
 <br>
 <br>
 
