@@ -75,14 +75,14 @@ title: Azure Table Storage – Partition Strategy Simulator
       <input type="number" id="categoryCount" value="5" min="1" max="1000">
     </div>
 
-    <div class="sim-row" id="bucketCountRow" class="hidden">
+    <div class="sim-row hidden" id="bucketCountRow">
       <label for="bucketCount">Number of Hash Buckets</label>
       <input type="number" id="bucketCount" value="64" min="2" max="1024">
     </div>
 
     <div class="sim-row">
       <label for="opsPerSec">Target Operations/sec</label>
-      <input type="number" id="opsPerSec" value="5000" min="100" max="100000">
+      <input type="number" id="opsPerSec" value="5000" min="100" max="20000">
     </div>
 
     <div class="sim-row">
@@ -280,9 +280,17 @@ title: Azure Table Storage – Partition Strategy Simulator
     // Throughput estimation
     const PARTITION_LIMIT = 2000; // ops/sec per partition
     const TABLE_LIMIT = 20000;
-    // Distribute ops proportional to entity count (hot partitions get more ops)
+    // Distribute ops based on query pattern
     const totalEntities = values.reduce((a,b) => a + b, 0);
-    const opsPerPartition = values.map(v => Math.round(opsPerSec * (v / totalEntities)));
+    const opsPerPartition = values.map(v => {
+      if (queryPattern === 'full-scan') {
+        // Each full-table-scan fans out to every partition, so each partition
+        // receives the full opsPerSec load (1 user op = N partition ops)
+        return opsPerSec;
+      }
+      // Point / partition-scan / range-scan: proportional to entity count
+      return Math.round(opsPerSec * (v / totalEntities));
+    });
     const peakOps = Math.max(...opsPerPartition);
 
     // --- Display Results ---

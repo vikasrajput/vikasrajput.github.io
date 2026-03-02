@@ -92,14 +92,14 @@ title: Azure Blob Storage – Partition Strategy Simulator
 
     <div class="sim-row">
       <label for="blobOpsPerSec">Target Requests/sec</label>
-      <input type="number" id="blobOpsPerSec" value="10000" min="100" max="500000">
+      <input type="number" id="blobOpsPerSec" value="10000" min="100" max="20000">
     </div>
 
     <div class="sim-row">
       <label for="accessPattern">Access Pattern</label>
       <select id="accessPattern">
         <option value="uniform">Uniform (all blobs equally)</option>
-        <option value="recent">Recent-focused (80% to newest)</option>Azure Storage
+        <option value="recent">Recent-focused (80% to newest)</option>
         <option value="hot-cold">Hot/cold (few blobs read often)</option>
       </select>
     </div>
@@ -216,9 +216,8 @@ title: Azure Blob Storage – Partition Strategy Simulator
         return name.charAt(0); // clusters into "0", maybe "1" for very large
       }
       case 'timestamp': {
-        // yyyyMMdd prefix — bucket by date prefix
-        const d = String(day).padStart(4, '0');
-        return 'D' + d.substring(0, 2); // groups into ~N/100 day ranges
+        // yyyyMMdd prefix — bucket by date prefix (one bucket per day)
+        return 'D' + String(day).padStart(4, '0');
       }
       case 'hash-prefix': {
         // Hash first 3 chars e.g., a3f — distribute into hex prefix
@@ -226,8 +225,13 @@ title: Azure Blob Storage – Partition Strategy Simulator
         return HEX_RANGES[h % 16];
       }
       case 'reverse-timestamp': {
-        // Reverse ticks: leading digits change with time
-        const ticks = (totalDays - day) * 86400 + (index % 86400);
+        // Reverse ticks: simulate .NET-style tick inversion.
+        // Scale so the offset range fills most of the 13-digit space,
+        // making the leading digits vary across different days/indices.
+        const maxOffset = totalDays * 864000000 + 864000000;
+        const scaleFactor = 9000000000000 / maxOffset; // map to 1T–9.9T range
+        const offset = ((totalDays - day) * 864000000 + (index % 864000000));
+        const ticks = Math.floor(9999999999999 - offset * scaleFactor);
         const rev = String(ticks).padStart(13, '0');
         return rev.charAt(0) + rev.charAt(1);
       }
@@ -299,7 +303,8 @@ title: Azure Blob Storage – Partition Strategy Simulator
         weight = weight * (0.2 + 0.8 * recency * recency);
       } else if (accessPattern === 'hot-cold') {
         // Top 10% of partitions by size get 90% of traffic
-        const rank = values.slice().sort((a,b) => b-a).indexOf(parts[k]);
+        const sorted = keys.slice().sort((a,b) => parts[b] - parts[a]);
+        const rank = sorted.indexOf(k);
         if (rank < totalParts * 0.1) weight *= 9;
       }
       traffic[k] = weight;
@@ -312,7 +317,7 @@ title: Azure Blob Storage – Partition Strategy Simulator
     }
 
     const peakTraffic = Math.max(...keys.map(k => traffic[k]));
-    const hotPartPercent = ((maxBlobs / totalBlobs) * 100).toFixed(1);
+    const hotPartPercent = ((peakTraffic / opsPerSec) * 100).toFixed(1);
 
     // --- Display ---
     $('resultsPanel').classList.remove('hidden');
