@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Field Maps for (relational) Data Services 
+title: Field Maps for Data Services 
 ---
 
 <br>
