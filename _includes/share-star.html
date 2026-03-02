@@ -1,0 +1,136 @@
+<!-- Share & Star bar — subtle, end-of-content -->
+<div class="share-star-bar" id="shareStarBar">
+  <div class="share-star-inner">
+
+    <!-- GitHub Star -->
+    {% if site.footer-links.github %}
+    <a class="ss-btn ss-star" href="https://github.com/{{ site.footer-links.github }}" target="_blank" rel="noopener" title="Star on GitHub">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span>Star on GitHub</span>
+    </a>
+    {% endif %}
+
+    <span class="ss-sep"></span>
+
+    <!-- LinkedIn -->
+    <a class="ss-btn ss-linkedin" id="ssLinkedIn" href="#" target="_blank" rel="noopener" title="Share on LinkedIn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <span>LinkedIn</span>
+    </a>
+
+    <!-- X / Twitter -->
+    <a class="ss-btn ss-x" id="ssTwitter" href="#" target="_blank" rel="noopener" title="Share on X">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      <span>X</span>
+    </a>
+
+    <!-- Copy Link -->
+    <button class="ss-btn ss-copy" id="ssCopyLink" title="Copy link to clipboard">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+      <span id="ssCopyText">Copy link</span>
+    </button>
+
+  </div>
+</div>
+
+<style>
+.share-star-bar {
+  margin: 32px 0 12px;
+  padding: 12px 0 0;
+  border-top: 1px solid #eee;
+}
+.share-star-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.ss-sep {
+  width: 1px;
+  height: 18px;
+  background: #ddd;
+  margin: 0 4px;
+}
+.ss-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  color: #555;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  line-height: 1;
+  white-space: nowrap;
+}
+.ss-btn:hover {
+  background: #f0f0f0;
+  border-color: #bbb;
+  color: #333;
+  text-decoration: none;
+}
+.ss-star:hover {
+  border-color: #d4a017;
+  color: #b8860b;
+  background: #fffdf5;
+}
+.ss-linkedin:hover {
+  border-color: #0a66c2;
+  color: #0a66c2;
+  background: #f0f7ff;
+}
+.ss-x:hover {
+  border-color: #333;
+  color: #000;
+  background: #f5f5f5;
+}
+.ss-copy:hover {
+  border-color: #4183C4;
+  color: #4183C4;
+  background: #f0f6fc;
+}
+.ss-copy.copied {
+  border-color: #28a745;
+  color: #28a745;
+  background: #f0fff4;
+}
+@media screen and (max-width: 640px) {
+  .ss-btn span { display: none; }
+  .ss-btn { padding: 6px 8px; }
+  .ss-sep { display: none; }
+}
+</style>
+
+<script>
+(function() {
+  var url = window.location.href;
+  var title = document.title;
+  var encoded = encodeURIComponent(url);
+  var encodedTitle = encodeURIComponent(title);
+
+  var li = document.getElementById('ssLinkedIn');
+  if (li) li.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encoded;
+
+  var tw = document.getElementById('ssTwitter');
+  if (tw) tw.href = 'https://twitter.com/intent/tweet?url=' + encoded + '&text=' + encodedTitle;
+
+  var cp = document.getElementById('ssCopyLink');
+  if (cp) {
+    cp.addEventListener('click', function() {
+      navigator.clipboard.writeText(url).then(function() {
+        var txt = document.getElementById('ssCopyText');
+        var btn = document.getElementById('ssCopyLink');
+        txt.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() { txt.textContent = 'Copy link'; btn.classList.remove('copied'); }, 2000);
+      });
+    });
+  }
+})();
+</script>
