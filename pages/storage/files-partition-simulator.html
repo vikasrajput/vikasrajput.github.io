@@ -36,6 +36,10 @@ title: Azure Files – Partition & Performance Simulator
   .gauge-fill { height: 100%; border-radius: 10px; transition: width 0.5s; }
   .gauge-text { font-size: 11px; color: #333; margin-top: 2px; text-align: right; }
   .hidden { display: none; }
+  .sim-hint { display: block; font-size: 11px; color: #888; margin-top: 2px; line-height: 1.4; }
+  .sim-limit-warning { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 10px 14px; margin-bottom: 12px; font-size: 13px; color: #856404; }
+  .sim-limit-warning ul { margin: 4px 0 0 16px; padding: 0; }
+  .sim-limit-warning li { margin-bottom: 2px; }
   @media screen and (max-width: 640px) {
     .sim-results { grid-template-columns: 1fr; }
     .sim-row { flex-direction: column; gap: 6px; }
@@ -75,12 +79,14 @@ title: Azure Files – Partition & Performance Simulator
 
     <div class="sim-row">
       <label for="shareCount">Number of File Shares</label>
-      <input type="number" id="shareCount" value="3" min="1" max="100">
+      <input type="number" id="shareCount" value="3" min="1" max="50">
+      <span class="sim-hint" id="hint-shareCount">Azure limit: 1 – 50 (Premium) / 250 (Standard) per storage account</span>
     </div>
 
     <div class="sim-row">
       <label for="shareSize">Provisioned Size per Share (GiB)</label>
-      <input type="number" id="shareSize" value="1024" min="1" max="102400">
+      <input type="number" id="shareSize" value="1024" min="100" max="102400">
+      <span class="sim-hint" id="hint-shareSize">Azure limit: 100 – 102,400 GiB (100 TiB) per share</span>
     </div>
 
     <div class="sim-row">
@@ -91,22 +97,26 @@ title: Azure Files – Partition & Performance Simulator
 
     <div class="sim-row">
       <label for="avgFileSize">Average File Size (KiB)</label>
-      <input type="number" id="avgFileSize" value="256" min="1" max="1048576">
+      <input type="number" id="avgFileSize" value="256" min="1" max="4194304">
+      <span class="sim-hint">Max single file: 4 TiB (4,194,304 KiB)</span>
     </div>
 
     <div class="sim-row">
       <label for="targetIOPS">Target IOPS</label>
       <input type="number" id="targetIOPS" value="10000" min="100" max="100000">
+      <span class="sim-hint" id="hint-targetIOPS">Azure limit: Premium up to 100,000 / Standard up to 10,000 per share</span>
     </div>
 
     <div class="sim-row">
       <label for="targetThroughput">Target Throughput (MiB/s)</label>
-      <input type="number" id="targetThroughput" value="200" min="1" max="10000">
+      <input type="number" id="targetThroughput" value="200" min="1" max="10240">
+      <span class="sim-hint" id="hint-targetThroughput">Azure limit: Premium up to 10,240 / Standard up to 300 MiB/s</span>
     </div>
 
     <div class="sim-row">
       <label for="concurrentUsers">Concurrent Users / Connections</label>
       <input type="number" id="concurrentUsers" value="50" min="1" max="10000">
+      <span class="sim-hint">Up to 10,000 concurrent connections per share</span>
     </div>
 
     <div class="sim-row">
@@ -118,7 +128,8 @@ title: Azure Files – Partition & Performance Simulator
       </select>
     </div>
 
-    <button class="sim-btn" onclick="runFilesSim()">▶ Run Simulation</button>
+    <div id="validationArea"></div>
+    <button class="sim-btn" onclick="validateAndRunFilesSim()">▶ Run Simulation</button>
   </div>
 
   <!-- RESULTS -->
@@ -211,11 +222,52 @@ title: Azure Files – Partition & Performance Simulator
     $('totalFilesLabel').textContent = Number($('totalFiles').value).toLocaleString();
   };
 
+  // Azure service limits per tier (used for input validation)
+  const TIER_FIELD_LIMITS = {
+    'premium-ssd': {
+      shareCount: { min: 1, max: 50 },
+      shareSize: { min: 100, max: 102400 },
+      targetIOPS: { min: 100, max: 100000 },
+      targetThroughput: { min: 1, max: 10240 },
+      avgFileSize: { min: 1, max: 4194304 },
+      concurrentUsers: { min: 1, max: 10000 }
+    },
+    'hot': {
+      shareCount: { min: 1, max: 250 },
+      shareSize: { min: 1, max: 102400 },
+      targetIOPS: { min: 100, max: 10000 },
+      targetThroughput: { min: 1, max: 300 },
+      avgFileSize: { min: 1, max: 4194304 },
+      concurrentUsers: { min: 1, max: 10000 }
+    },
+    'cool': {
+      shareCount: { min: 1, max: 250 },
+      shareSize: { min: 1, max: 102400 },
+      targetIOPS: { min: 100, max: 10000 },
+      targetThroughput: { min: 1, max: 300 },
+      avgFileSize: { min: 1, max: 4194304 },
+      concurrentUsers: { min: 1, max: 10000 }
+    }
+  };
+
+  function updateHintsForTier(tier) {
+    const l = TIER_FIELD_LIMITS[tier];
+    const isPremium = tier === 'premium-ssd';
+    const h = function(id, txt) { const el = document.getElementById(id); if (el) el.textContent = txt; };
+    h('hint-shareCount', 'Azure limit: 1 \u2013 ' + l.shareCount.max + (isPremium ? ' (Premium)' : ' (Standard)') + ' per storage account');
+    h('hint-shareSize', 'Azure limit: ' + l.shareSize.min + ' \u2013 102,400 GiB (100 TiB) per share');
+    h('hint-targetIOPS', 'Azure limit: up to ' + l.targetIOPS.max.toLocaleString() + ' IOPS per share (' + (isPremium ? 'Premium' : 'Standard') + ')');
+    h('hint-targetThroughput', 'Azure limit: up to ' + l.targetThroughput.max.toLocaleString() + ' MiB/s (' + (isPremium ? 'Premium' : 'Standard') + ')');
+    $('shareCount').max = l.shareCount.max;
+    $('shareSize').min = l.shareSize.min;
+    $('targetIOPS').max = l.targetIOPS.max;
+    $('targetThroughput').max = l.targetThroughput.max;
+  }
+
   window.onTierChange = function() {
     const tier = $('tier').value;
     const proto = $('protocol');
     if (tier !== 'premium-ssd') {
-      // NFS only available on premium
       for (let o of proto.options) {
         o.disabled = (o.value === 'nfs' && tier !== 'premium-ssd');
       }
@@ -223,6 +275,44 @@ title: Azure Files – Partition & Performance Simulator
     } else {
       for (let o of proto.options) o.disabled = false;
     }
+    updateHintsForTier(tier);
+  };
+
+  function clampField(id, min, max, label) {
+    var el = $(id);
+    var val = Number(el.value);
+    var msgs = [];
+    if (isNaN(val) || el.value.trim() === '') {
+      el.value = min;
+      msgs.push(label + ' was empty \u2014 set to minimum <strong>' + min.toLocaleString() + '</strong>');
+      return msgs;
+    }
+    if (val > max) {
+      msgs.push(label + ': <strong>' + val.toLocaleString() + '</strong> exceeds Azure limit \u2014 clamped to <strong>' + max.toLocaleString() + '</strong>');
+      el.value = max;
+    } else if (val < min) {
+      msgs.push(label + ': <strong>' + val.toLocaleString() + '</strong> below minimum \u2014 set to <strong>' + min.toLocaleString() + '</strong>');
+      el.value = min;
+    }
+    return msgs;
+  }
+
+  window.validateAndRunFilesSim = function() {
+    var tier = $('tier').value;
+    var l = TIER_FIELD_LIMITS[tier];
+    var msgs = [];
+    msgs = msgs.concat(clampField('shareCount', l.shareCount.min, l.shareCount.max, 'File Shares'));
+    msgs = msgs.concat(clampField('shareSize', l.shareSize.min, l.shareSize.max, 'Share Size (GiB)'));
+    msgs = msgs.concat(clampField('avgFileSize', l.avgFileSize.min, l.avgFileSize.max, 'Avg File Size (KiB)'));
+    msgs = msgs.concat(clampField('targetIOPS', l.targetIOPS.min, l.targetIOPS.max, 'Target IOPS'));
+    msgs = msgs.concat(clampField('targetThroughput', l.targetThroughput.min, l.targetThroughput.max, 'Target Throughput (MiB/s)'));
+    msgs = msgs.concat(clampField('concurrentUsers', l.concurrentUsers.min, l.concurrentUsers.max, 'Concurrent Users'));
+    if (msgs.length > 0) {
+      $('validationArea').innerHTML = '<div class="sim-limit-warning">\u26A0\uFE0F <strong>Values adjusted to Azure service limits:</strong><ul>' + msgs.map(function(m) { return '<li>' + m + '</li>'; }).join('') + '</ul></div>';
+    } else {
+      $('validationArea').innerHTML = '';
+    }
+    runFilesSim();
   };
 
   // Tier-based calculations
@@ -486,5 +576,8 @@ title: Azure Files – Partition & Performance Simulator
 
     return recs;
   }
+
+  // Initialize hints for the default tier on page load
+  updateHintsForTier($('tier').value);
 })();
 </script>

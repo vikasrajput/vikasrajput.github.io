@@ -29,6 +29,10 @@ title: Azure Table Storage – Partition Strategy Simulator
   .rec-list li.warn { border-left-color: #ffc107; }
   .rec-list li.danger { border-left-color: #dc3545; }
   .hidden { display: none; }
+  .sim-hint { display: block; font-size: 11px; color: #888; margin-top: 2px; line-height: 1.4; }
+  .sim-limit-warning { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 10px 14px; margin-bottom: 12px; font-size: 13px; color: #856404; }
+  .sim-limit-warning ul { margin: 4px 0 0 16px; padding: 0; }
+  .sim-limit-warning li { margin-bottom: 2px; }
   @media screen and (max-width: 640px) {
     .sim-results { grid-template-columns: 1fr; }
     .sim-row { flex-direction: column; gap: 6px; }
@@ -68,21 +72,25 @@ title: Azure Table Storage – Partition Strategy Simulator
     <div class="sim-row">
       <label for="timeSpanDays">Time Span (days)</label>
       <input type="number" id="timeSpanDays" value="365" min="1" max="3650">
+      <span class="sim-hint">Simulation parameter: 1 – 3,650 days (~10 years)</span>
     </div>
 
     <div class="sim-row" id="categoryCountRow">
       <label for="categoryCount">Number of Categories</label>
       <input type="number" id="categoryCount" value="5" min="1" max="1000">
+      <span class="sim-hint">Simulation parameter: 1 – 1,000 categories</span>
     </div>
 
     <div class="sim-row hidden" id="bucketCountRow">
       <label for="bucketCount">Number of Hash Buckets</label>
       <input type="number" id="bucketCount" value="64" min="2" max="1024">
+      <span class="sim-hint">Simulation parameter: 2 – 1,024 buckets</span>
     </div>
 
     <div class="sim-row">
       <label for="opsPerSec">Target Operations/sec</label>
       <input type="number" id="opsPerSec" value="5000" min="100" max="20000">
+      <span class="sim-hint">Azure limit: up to 20,000 ops/sec per storage account</span>
     </div>
 
     <div class="sim-row">
@@ -104,7 +112,8 @@ title: Azure Table Storage – Partition Strategy Simulator
       </select>
     </div>
 
-    <button class="sim-btn" onclick="runSimulation()">▶ Run Simulation</button>
+    <div id="validationArea"></div>
+    <button class="sim-btn" onclick="validateAndRunTableSim()">▶ Run Simulation</button>
   </div>
 
   <!-- RESULTS -->
@@ -248,6 +257,47 @@ title: Azure Table Storage – Partition Strategy Simulator
 
   let distChartInstance = null;
   let heatChartInstance = null;
+
+  // Azure service limits enforcement
+  const TABLE_LIMITS = {
+    timeSpanDays: { min: 1, max: 3650, label: 'Time Span (days)' },
+    categoryCount: { min: 1, max: 1000, label: 'Number of Categories' },
+    bucketCount: { min: 2, max: 1024, label: 'Hash Buckets' },
+    opsPerSec: { min: 100, max: 20000, label: 'Operations/sec' }
+  };
+
+  function clampField(id, min, max, label) {
+    var el = $(id);
+    var val = Number(el.value);
+    var msgs = [];
+    if (isNaN(val) || el.value.trim() === '') {
+      el.value = min;
+      msgs.push(label + ' was empty \u2014 set to minimum <strong>' + min.toLocaleString() + '</strong>');
+      return msgs;
+    }
+    if (val > max) {
+      msgs.push(label + ': <strong>' + val.toLocaleString() + '</strong> exceeds Azure limit \u2014 clamped to <strong>' + max.toLocaleString() + '</strong>');
+      el.value = max;
+    } else if (val < min) {
+      msgs.push(label + ': <strong>' + val.toLocaleString() + '</strong> below minimum \u2014 set to <strong>' + min.toLocaleString() + '</strong>');
+      el.value = min;
+    }
+    return msgs;
+  }
+
+  window.validateAndRunTableSim = function() {
+    var msgs = [];
+    for (var id in TABLE_LIMITS) {
+      var l = TABLE_LIMITS[id];
+      msgs = msgs.concat(clampField(id, l.min, l.max, l.label));
+    }
+    if (msgs.length > 0) {
+      $('validationArea').innerHTML = '<div class="sim-limit-warning">\u26A0\uFE0F <strong>Values adjusted to Azure service limits:</strong><ul>' + msgs.map(function(m) { return '<li>' + m + '</li>'; }).join('') + '</ul></div>';
+    } else {
+      $('validationArea').innerHTML = '';
+    }
+    runSimulation();
+  };
 
   window.runSimulation = function() {
     const strategy = $('pkStrategy').value;
