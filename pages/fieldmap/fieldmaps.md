@@ -4,7 +4,7 @@ title: Field Maps for (relational) Data Services
 ---
 
 <br>
-[MySQL]({% link pages/waf/azmysql.md %}) &emsp; &emsp; | &emsp; &emsp; [PostgreSQL]({% link pages/waf/azpgsql.md %})  &emsp; &emsp; | &emsp; &emsp; [SQL Server]({% link pages/waf/sql2022.md %})  &emsp; &emsp; | &emsp; &emsp;  [Azure SQL]({% link pages/waf/azsql.md %})
+[MySQL]({% link pages/fieldmap/azmysql.md %}) &emsp; &emsp; | &emsp; &emsp; [PostgreSQL]({% link pages/fieldmap/azpgsql.md %})  &emsp; &emsp; | &emsp; &emsp; [SQL Server]({% link pages/fieldmap/sql2022.md %})  &emsp; &emsp; | &emsp; &emsp;  [Azure SQL]({% link pages/fieldmap/azsql.md %})
 <br>
 <br>
 
