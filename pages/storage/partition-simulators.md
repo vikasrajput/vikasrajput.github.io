@@ -40,24 +40,7 @@ title: Azure Storage – Partition Strategy Simulators
 
   <div class="card-grid">
 
-    <div class="card">
-      <h3>🗃️ <a href="{{ site.baseurl }}/pages/storage/table-partition-simulator">Table Storage</a></h3>
-      <p class="desc">
-        Table Storage gives you <strong>explicit control</strong> over the PartitionKey — making it the most impactful 
-        design decision. Simulate date-based, category-based, unique, composite, and hash-bucket strategies.
-      </p>
-      <ul class="features">
-        <li>Visualize entity distribution across partitions</li>
-        <li>Detect hot partitions exceeding 2,000 ops/sec</li>
-        <li>Compare 6 different PartitionKey strategies</li>
-        <li>Factor in query patterns and data skew</li>
-      </ul>
-      <span class="complexity high">User Control: High</span>
-      &nbsp;
-      <a href="{{ site.baseurl }}/pages/storage/table-partition-simulator" class="link-btn">Open Simulator →</a>
-    </div>
-
-    <div class="card">
+     <div class="card">
       <h3>📦 <a href="{{ site.baseurl }}/pages/storage/blob-partition-simulator">Blob Storage</a></h3>
       <p class="desc">
         Blob partitioning is driven by <strong>naming patterns</strong>. Sequential names are the #1 anti-pattern. 
@@ -91,6 +74,22 @@ title: Azure Storage – Partition Strategy Simulators
       <a href="{{ site.baseurl }}/pages/storage/files-partition-simulator" class="link-btn">Open Simulator →</a>
     </div>
 
+    <div class="card">
+      <h3>🗃️ <a href="{{ site.baseurl }}/pages/storage/table-partition-simulator">Table Storage</a></h3>
+      <p class="desc">
+        Table Storage gives you <strong>explicit control</strong> over the PartitionKey — making it the most impactful 
+        design decision. Simulate date-based, category-based, unique, composite, and hash-bucket strategies.
+      </p>
+      <ul class="features">
+        <li>Visualize entity distribution across partitions</li>
+        <li>Detect hot partitions exceeding 2,000 ops/sec</li>
+        <li>Compare 6 different PartitionKey strategies</li>
+        <li>Factor in query patterns and data skew</li>
+      </ul>
+      <span class="complexity high">User Control: High</span>
+      &nbsp;
+      <a href="{{ site.baseurl }}/pages/storage/table-partition-simulator" class="link-btn">Open Simulator →</a>
+    </div>
   </div>
 
   <div class="concept-box">
