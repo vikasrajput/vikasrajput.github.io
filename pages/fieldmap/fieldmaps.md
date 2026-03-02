@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Field Maps for (relational) Data Services 
 ---
 
@@ -11,8 +11,7 @@ title: Field Maps for (relational) Data Services
 ## Why *Field Maps*? 
 I was looking for something which (a) enables field teams, (b)  streamline current data, and (c) is easy to step through quickly.
 In GIS world, term Field Mapping is used for somewhat similar intent. And hence reference to Field Maps for (relational) Data Services.
-
-Field Maps is a quick and easy way to map Foundational topics (features in a data tech/service) and as Well Architected Framework (aka.ms/waf) pillar features.  <br><br>
+<br><br>
 
 ## Field Map, or not, how it helps me? 
 5R's of Cloud Migration are almost public domain knowledge now ([link](https://www.gartner.com/en/documents/1485116){:target="_blank" rel="noopener"}). Same goes for Well Architected Framework (WAF) with every cloud provider having it. <br> 
