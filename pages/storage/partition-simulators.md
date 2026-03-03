@@ -41,7 +41,7 @@ title: Azure Storage – Partition Strategy Simulators
   <div class="card-grid">
 
      <div class="card">
-      <h3>📦 <a href="{{ site.baseurl }}/pages/storage/blob-partition-simulator">Blob Storage</a></h3>
+      <h3>📦 <a href="https://vikasrajput.github.io/storage-simulator/simulators/blob-partition-simulator.html">Blob Storage</a></h3>
       <p class="desc">
         Blob partitioning is driven by <strong>naming patterns</strong>. Sequential names are the #1 anti-pattern. 
         Simulate how different naming conventions (hash-prefix, GUID, timestamp) affect partition distribution.
@@ -54,11 +54,11 @@ title: Azure Storage – Partition Strategy Simulators
       </ul>
       <span class="complexity medium">User Control: Medium</span>
       &nbsp;
-      <a href="{{ site.baseurl }}/pages/storage/blob-partition-simulator" class="link-btn">Open Simulator →</a>
+      <a href="https://vikasrajput.github.io/storage-simulator/simulators/blob-partition-simulator.html" class="link-btn">Open Simulator →</a>
     </div>
 
     <div class="card">
-      <h3>📁 <a href="{{ site.baseurl }}/pages/storage/files-partition-simulator">Azure Files</a></h3>
+      <h3>📁 <a href="https://vikasrajput.github.io/storage-simulator/simulators/files-partition-simulator.html">Azure Files</a></h3>
       <p class="desc">
         Azure Files performance is driven by <strong>share size, tier, and protocol</strong> rather than naming. 
         Simulate IOPS, throughput, and capacity against provisioned limits across shares.
@@ -71,11 +71,11 @@ title: Azure Storage – Partition Strategy Simulators
       </ul>
       <span class="complexity low">User Control: Low</span>
       &nbsp;
-      <a href="{{ site.baseurl }}/pages/storage/files-partition-simulator" class="link-btn">Open Simulator →</a>
+      <a href="https://vikasrajput.github.io/storage-simulator/simulators/files-partition-simulator.html" class="link-btn">Open Simulator →</a>
     </div>
 
     <div class="card">
-      <h3>🗃️ <a href="{{ site.baseurl }}/pages/storage/table-partition-simulator">Table Storage</a></h3>
+      <h3>🗃️ <a href="https://vikasrajput.github.io/storage-simulator/simulators/table-partition-simulator.html">Table Storage</a></h3>
       <p class="desc">
         Table Storage gives you <strong>explicit control</strong> over the PartitionKey — making it the most impactful 
         design decision. Simulate date-based, category-based, unique, composite, and hash-bucket strategies.
@@ -88,7 +88,7 @@ title: Azure Storage – Partition Strategy Simulators
       </ul>
       <span class="complexity high">User Control: High</span>
       &nbsp;
-      <a href="{{ site.baseurl }}/pages/storage/table-partition-simulator" class="link-btn">Open Simulator →</a>
+      <a href="https://vikasrajput.github.io/storage-simulator/simulators/table-partition-simulator.html" class="link-btn">Open Simulator →</a>
     </div>
   </div>
 
@@ -105,6 +105,12 @@ title: Azure Storage – Partition Strategy Simulators
         <tr><td style="padding:6px;">Shared file system (SMB/NFS lift-and-shift)</td><td style="padding:6px;"><strong>Azure Files</strong> simulator — tier and share sizing are key</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="concept-box">
+    <h4>📦 Moved to Dedicated Repository</h4>
+    These simulators are now maintained in the <a href="https://github.com/vikasrajput/storage-simulator"><strong>storage-simulator</strong></a> repository, 
+    which also includes planned CLI tools and demo scenarios.
   </div>
 
 </div>
