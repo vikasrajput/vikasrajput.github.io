@@ -10,11 +10,10 @@ This playbook is tailored for Azure IaaS-heavy environments (VMs, VNets, Load Ba
 Guiding constraints: Retain IaaS compute (VMs / VMSS) and PaaS data services as the primary tier; Use IaaS-native or low-cost PaaS options; avoid forced rearchitecture; prioritise low-risk, high-impact changes first.
 
 ## At a Glance Proces 
-* Phase 1: Visibility and Baseline
-* Phase 2: Redundancy and Fault Isolation
-* Phase 3: Data Durability and Deployment Safety
-* Phase 4: Demand Management and Scalability
-* Phase 5: Observability and Continuous Resilience
+```mermaid
+flowchart TD
+  P1["Phase 1: Visibility and Baseline"] --> P2["Phase 2: Redundancy and Fault Isolation"] --> P3["Phase 3: Data Durability and Deployment Safety"] --> P4["Phase 4: Demand Management and Scalability"] --> P5["Phase 5: Observability and Continuous Resilience"]
+```
 
 # Phase 1: Visibility and Baseline
 Scope: Weeks 1–3. Instrument before you touch anything. Build observability before structural change. Without baseline data, priorities and outcomes are speculative.
