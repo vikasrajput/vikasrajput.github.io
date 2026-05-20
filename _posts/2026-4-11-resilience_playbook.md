@@ -3,12 +3,9 @@ layout: post
 title: Cloud Infrastructure Resilience Playbook
 ---
 
-# Azure IaaS + PaaS: Zero to Resilient
+Its not often we get greenfield to apply ALZ and WAF pillars from ground up. Resiliency remains a recurring and thematic ask. So am documenting the most foundational (IaaS + PaaS) solution and sharing the playbook of taking that workload from zero to best in class resilient posture. 
 
-## How This Plan Is Structured
-This playbook is tailored for Azure IaaS-heavy environments (VMs, VNets, Load Balancer, VMSS, containers on VMs) with selective PaaS adoption for data and messaging (Azure SQL / PostgreSQL Flexible Server, Service Bus, Redis, Storage).
-
-It is organised into five phases. Each phase defines scope, actions, Azure mechanisms, cost posture, and exit criteria. Sequence is intentional: observe first, then remove critical failure points, then harden data and delivery, then scale demand handling, then institutionalise resilience.
+This playbook is tailored for Azure IaaS-heavy environments (VMs, VNets, Load Balancer, VMSS, containers on VMs) with selective PaaS adoption for data and messaging (Azure SQL / PostgreSQL Flexible Server, Service Bus, Redis, Storage). It is organised into five phases. Each phase defines scope, actions, Azure mechanisms, cost posture, and exit criteria. Sequence is intentional: observe first, then remove critical failure points, then harden data and delivery, then scale demand handling, then institutionalise resilience.
 
 ### Guiding constraints throughout:
 * Retain IaaS compute (VMs / VMSS) and PaaS data services as the primary tier
