@@ -7,11 +7,14 @@ Its not often we get greenfield to apply ALZ and WAF pillars from ground up. Res
 
 This playbook is tailored for Azure IaaS-heavy environments (VMs, VNets, Load Balancer, VMSS, containers on VMs) with selective PaaS adoption for data and messaging (Azure SQL / PostgreSQL Flexible Server, Service Bus, Redis, Storage). It is organised into five phases. Each phase defines scope, actions, Azure mechanisms, cost posture, and exit criteria. Sequence is intentional: observe first, then remove critical failure points, then harden data and delivery, then scale demand handling, then institutionalise resilience.
 
-### Guiding constraints throughout:
-* Retain IaaS compute (VMs / VMSS) and PaaS data services as the primary tier
-* Use IaaS-native or low-cost PaaS options; avoid forced rearchitecture
-* Prioritise low-risk, high-impact changes first
-* Define RTO and RPO before selecting redundancy patterns
+Guiding constraints: Retain IaaS compute (VMs / VMSS) and PaaS data services as the primary tier; Use IaaS-native or low-cost PaaS options; avoid forced rearchitecture; prioritise low-risk, high-impact changes first.
+
+## At a Glance Proces 
+* Phase 1: Visibility and Baseline
+* Phase 2: Redundancy and Fault Isolation
+* Phase 3: Data Durability and Deployment Safety
+* Phase 4: Demand Management and Scalability
+* Phase 5: Observability and Continuous Resilience
 
 # Phase 1: Visibility and Baseline
 Scope: Weeks 1–3 — instrument before you touch anything
@@ -257,7 +260,7 @@ Low to moderate licensing and process cost (primarily governance and drills). No
 Privileged access for critical recovery actions is time-bound, auditable, and tested. Break-glass access is validated and governed.
 
 
-# Phase 4 · Demand Management and Scalability
+# Phase 4: Demand Management and Scalability
 Scope: Months 3–5 — make the system respond to load correctly
 Scale and resilience must be addressed together. Add elasticity and ingress controls to handle demand safely.
 
@@ -325,7 +328,7 @@ Azure Front Door Standard: ~$20/month + data transfer. Significant cost reductio
 Static assets are served from CDN with cache-hit rate >90%. If the application VM tier is entirely down, the CDN serves cached content for at least 60 seconds (configurable stale-if-error window).
 
 
-# Phase 5: Observability, Operational Maturity, and Continuous Resilience
+# Phase 5: Observability and Continuous Resilience
 Scope: Months 4–8 — close the remaining gaps and make resilience self-sustaining
 By this phase, structural resilience is in place. Focus shifts to operational discipline, early detection, and continuous improvement.
 
