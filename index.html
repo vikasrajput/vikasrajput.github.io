@@ -1,16 +1,19 @@
 ---
 layout: default
+description: Explore cloud architecture, data and AI, and engineering leadership with Vikas Rajput through practical articles, playbooks, presentations and tools.
 ---
+
+<section class="intro">
+  <h1>{{ site.tagline | escape }}</h1>
+  <p>I'm Vikas Rajput. I help businesses save, scale and simplify their cloud and data/AI solutions, connecting technology decisions with people, process and business outcomes.</p>
+  <p>Here I share practical perspectives on resilient cloud architecture, data and AI adoption, and engineering leadership. <a href="{{ '/about/' | relative_url }}">More about me</a>.</p>
+</section>
 
 <div class="posts">
   {% for post in site.posts %}
     <article class="post">
-      <h5><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h5> 
-      <!--VR<h4>{{ post.date | date: "%Y-%m-%d" }} | <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4> 
-       <div class="entry"> -->
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
       {{ post.excerpt }}
-      <!--VR </div> 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a> -->
     </article>
   {% endfor %}
-</div><!--VR
+</div>

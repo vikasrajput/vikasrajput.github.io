@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Public Speaking - Presentation
+title: Cloud, Data & AI Presentations
+description: Talks and presentations by Vikas Rajput on Azure, data engineering, AI, MLOps and cloud architecture, with slides and recordings.
 permalink: /presentation/
 ---
 
@@ -19,4 +20,3 @@ permalink: /presentation/
 
 
 <br><br>
-

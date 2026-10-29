@@ -1,6 +1,8 @@
 ---
 layout: post
-title: Tales of new eating old
+title: AI as an Adoption Multiplier in Engineering Organizations
+description: How AI shifts value in engineering organizations, from deterministic integration to adaptive reasoning, and what this means for architecture and leadership.
+permalink: /AI-Adoption-Multiplier/
 ---
 
 Tired of hearing “AI is eating software”? What’s really happening in large, Engg Org’s? Not hype, but change that’s reshaping engineering and business.

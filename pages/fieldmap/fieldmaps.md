@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Field Maps for Data Services 
+description: One-page field maps for Azure SQL, SQL Server, PostgreSQL and MySQL, linking foundational features and well-architected guidance for cloud migration.
 ---
 
 <br>
@@ -44,7 +45,6 @@ Start with any of the one-pager field maps linked above. Each has
 Legally - no body (or entity). I intend to keep these current to best I can (and shared here) – but I don’t intend to suggest these are owned. At best, I see them as pointer to Product and Vendor Documentation / knowledge - just catalogued differently to provide a convenient start line!
 
 You are welcome to use these one-pagers as you see fit – for reference, exchange, circulation, baseline against etc. If you put in an attribution, I would welcome that as it helps it reach more people. But beyond that, I don’t intend to track attributions. If possible, let me know if something’s broken (say, links). As well (hoping it’s not just me who benefits), I will be joyous if you shared how these are of help to you.
-
 
 
 

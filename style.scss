@@ -177,6 +177,7 @@ img {
 
   img {
     border-radius: 5px;
+    object-fit: cover;
   }
 }
 
@@ -198,6 +199,10 @@ img {
   font-weight: 300;
   font-size: 28px;
   letter-spacing: 1px;
+
+  a {
+    color: inherit;
+  }
 }
 
 .site-description {

@@ -3,7 +3,8 @@ layout: default
 ---
 
 <article class="post">
-  <h1>{{ page.title }}</h1>
+  <h1>{{ page.title | escape }}</h1>
+  <p class="post-author">By <a href="{{ '/about/' | relative_url }}">{{ site.author.name | escape }}</a></p>
 
   <div class="entry">
     {{ content }}
@@ -12,7 +13,10 @@ layout: default
   <br><br>
   
   <div class="date">
-    Last update: {{ page.date | date: "%Y-%m-%d" }}
+    Published: <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+    {% if page.last_modified_at %}
+    &middot; Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%Y-%m-%d" }}</time>
+    {% endif %}
   </div>
 
   {% include share-star.html %}

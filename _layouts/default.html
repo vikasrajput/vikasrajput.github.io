@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' | escape }}">
   <head>
-   <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} </title> <!-- – {{ site.description }}</title> -->
-
     {% include meta.html %}
 
     <!--[if lt IE 9]>
@@ -10,7 +8,7 @@
     <![endif]-->
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}" />
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
@@ -19,20 +17,20 @@
     <div class="wrapper-masthead">
       <div class="container">
         <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" alt="{{ site.author.name | escape }}" width="70" height="70" /></a>
 
           <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
+            <p class="site-name"><a href="{{ site.baseurl }}/">{{ site.name | escape }}</a></p>
+            <p class="site-description">{{ site.tagline | escape }}</p>
           </div>
 
           <nav>
             <!-- <a href="{{ site.baseurl }}/">Blog</a>> 
             <a href="{{ site.baseurl }}/architecture">Architecture</a> 
             <a href="{{ site.baseurl }}/linux">Linux</a> -->
-            <a href="{{ site.baseurl }}/presentation">Presentation</a> 
-            <a href="{{ site.baseurl }}/utility">Utilities</a> 
-            <a href="{{ site.baseurl }}/about">About</a>
+            <a href="{{ '/presentation/' | relative_url }}">Presentations</a>
+            <a href="{{ '/utility/' | relative_url }}">Utilities</a>
+            <a href="{{ '/about/' | relative_url }}">About</a>
           </nav>
         </header>
       </div>

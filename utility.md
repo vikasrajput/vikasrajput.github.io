@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Utilities
+title: Cloud & Data Engineering Tools
+description: Explore Vikas Rajput's Azure Storage partition simulators and data service field maps for cloud architecture, migration and well-architected design.
 permalink: /utility/
 ---
 
@@ -40,4 +41,3 @@ Storage throttling is the silent killer of cloud applications — it only surfac
 ## [Field Maps]({% link pages/fieldmap/fieldmaps.md %}) 
 Field Maps is a quick and easy way to map Foundational topics (features in a data tech/service) and as Well Architected Framework (aka.ms/waf) pillar features.  
 <br><br>
-

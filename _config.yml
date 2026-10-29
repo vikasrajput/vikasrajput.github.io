@@ -3,10 +3,24 @@
 #
 
 # Name of your site (displayed in the header)
-name: Save | Scale | Simplify
+name: Vikas Rajput
+title: Vikas Rajput
+tagline: Cloud | Data & AI | Engineering Leadership
+lang: en
 
 # Short bio or description (displayed in the header)
-description: Partnering across business and engineering to create clarity and accelerate growth
+description: Practical perspectives on cloud architecture, data and AI, and engineering leadership from Vikas Rajput. Helping businesses save, scale and simplify.
+author:
+  name: Vikas Rajput
+  url: https://vikasrajput.github.io/about/
+social:
+  name: Vikas Rajput
+  links:
+    - https://www.linkedin.com/in/rajputsvikas
+    - https://github.com/vikasrajput
+    - https://sessionize.com/rajputsvikas
+twitter:
+  card: summary
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 # avatar: https://vikasrajput.github.io/images/SunImage.jpg
@@ -43,7 +57,7 @@ google_analytics: UA-49246845-3
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url:
+url: https://vikasrajput.github.io
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
@@ -76,9 +90,20 @@ sass:
 
 # Use the following plug-ins
 plugins:
+  - jekyll-seo-tag # Canonical URLs, metadata, social previews and structured data
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-tagging # VR: add tagging features 
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image:
+        path: /images/Author.jpg
+        width: 572
+        height: 457
+        alt: Vikas Rajput
 
 # Exclude these files from your production _site
 exclude:
