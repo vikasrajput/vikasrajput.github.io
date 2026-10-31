@@ -1,9 +1,15 @@
 ---
 layout: page
-title: Cloud & Data Engineering Tools
-description: Explore Vikas Rajput's Azure Storage partition simulators and data service field maps for cloud architecture, migration and well-architected design.
+title: Cloud, Data & AI Tools
+description: Explore Vikas Rajput's AI-agent directory, Azure Storage partition simulators and data service field maps for practical AI discovery and cloud architecture.
 permalink: /utility/
 ---
+
+## [Top AI agents](https://vikasrajput.github.io/top-ai-agents/)
+
+Find AI agents, frameworks, skills and tools by use case. Browse the **Top 50** by GitHub stars, discover **Rising alternatives**, and open profiles with practical uses, requirements and limitations.
+
+[Explore the Top 50](https://vikasrajput.github.io/top-ai-agents/#featured) | [Discover rising alternatives](https://vikasrajput.github.io/top-ai-agents/#rising)
 
 ## [Azure Storage – Partition Strategy Simulator](https://vikasrajput.github.io/storage-simulator/simulators/)
 Storage throttling is the silent killer of cloud applications — it only surfaces at production scale, and the fix is a schema redesign (the most expensive kind of change). Am sharing **zero-install browser simulators** here which let you visualize partition behaviour and detect hot-spots *before* you deploy. No Azure account needed, no costs involved, no hit and trial.
